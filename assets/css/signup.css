@@ -61,8 +61,3 @@ label{
 .signupbtn:hover{
     cursor: pointer;
 }
-@media screen and (max-width: 300px) {
-    .signupbtn {
-        width: 100%;
-    }
-}

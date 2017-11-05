@@ -1,4 +1,10 @@
-
+.login-form{
+    display:table;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: 45%;
+    margin-right:20%;
+}
 
 input[type=email], input[type=password] {
     width: 100%;
@@ -46,8 +52,4 @@ label{
 .loginbtn:hover{
     cursor: pointer;
 }
-@media screen and (max-width: 300px) {
-    .loginbtn {
-        width: 100%;
-    }
-}
+
