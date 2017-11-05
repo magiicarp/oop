@@ -6,11 +6,8 @@
     margin-right:20%;
 }
 
-.signhead{
-    margin-left: 26%;
-}
 
-input[type=email], input[type=password] {
+input[type=email], input[type=password], input[type=name],input[type=date] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;

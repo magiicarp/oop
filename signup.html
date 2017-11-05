@@ -48,7 +48,7 @@
                                                 <span class="icon-bar"></span>
                                                 <span class="icon-bar"></span>
                                             </button>
-                                            <a class="navbar-brand" href="#home">
+                                            <a class="navbar-brand" href="#">
                                                 <img src="assets/images/logo.png"/>
                                             </a>
                                         </div>
@@ -64,7 +64,7 @@
                                                 <li><a href="#" style="color: #9d9d9d">Health Tracker</a></li>
                                                 <li><a href="#" style="color: #9d9d9d">Planner</a></li>
                                                 <li><a href="#" style="color: #9d9d9d">Healthy Eating</a></li>
-                                                <li><a href="#" style="color: #9d9d9d">Events</a></li>
+                                                <li><a href="events.html" style="color: #9d9d9d">Events</a></li>
                                                 <li><a href="contact.html" style="color: #9d9d9d">CONTACT</a></li>
                                                 <li class="login"><a href="login.html" style="color: #9d9d9d">Login</a></li>
 
@@ -98,21 +98,32 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-6">
-                            <h2 class="signhead">REGISTER NOW</h2>
                             <form>
+                                <caption><h2>REGISTER NOW</h2></caption>
+                                <label><b>NAME</b></label>
+                                <br>
+                                <input type="name" placeholder="FULL NAME" name="name" required>
+                                <br>
+                                <label><b>USERNAME</b></label>
+                                <br>
+                                <input type="name" placeholder="USERNAME" name="username" required>
+                                <label><b>BIRTHDAY</b></label>
+                                <br>
+                                <input type="date" placeholder="MM/DD/YYYY" name="bday" required>
                                 <label><b>EMAIL</b></label>
                                 <br>
-                                <input type="email" placeholder="Enter Email" name="email" required>
+                                <input type="email" placeholder="EMAIL" name="email" required>
                                 <br>
                                 <label><b>PASSWORD</b></label><br>
-                                <input type="password" placeholder="Enter Password" name="psw" required>
+                                <input type="password" placeholder="PASSWORD" name="psw" required>
                                 <br>
                                 <i class="fa fa-info" aria-hidden="true"></i><span> Password must have at least 8 characters with at least one number and one alphabet</span><br>
                                 <label><b>CONFIRM PASSWORD</b></label>
                                 <br>
-                                <input  type="password" placeholder="Confirm Password" name="psw-repat" required>
+                                <input  type="password" placeholder="CONFRIM PASSWORD" name="psw-repat" required>
                                 <br>
-                                <input type="checkbox"> By creating an account you agree to our <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a>.</input><br>
+                                <input type="checkbox"> By creating an account you agree to our <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a>.</input>
+                                <p>Already have an account? Login <a href="login.html">here</a>.</p>
                                 <button type="submit" class="signupbtn">CREATE ACCOUNT</button>
                             </form>
                         </div>

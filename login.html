@@ -36,8 +36,8 @@
             <header id="main_menu" class="header navbar-fixed-top">
                 <div class="main_menu_bg">
                     <div class="container">
-                        <nav class="row">
-                            <nav class="nave_menu">
+                        <div class="row">
+                            <div class="nave_menu">
                                 <nav class="navbar navbar-default">
                                     <div class="container-fluid">
                                         <!-- Brand and toggle get grouped for better mobile display -->
@@ -48,9 +48,15 @@
                                                 <span class="icon-bar"></span>
                                                 <span class="icon-bar"></span>
                                             </button>
-                                            <a class="navbar-brand" href="#home"></a>
+                                            <a class="navbar-brand" href="#">
                                                 <img src="assets/images/logo.png"/>
+                                            </a>
+                                        </div>
+
                                         <!-- Collect the nav links, forms, and other content for toggling -->
+
+
+
                                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
                                             <ul class="nav navbar-nav navbar-right">
@@ -58,9 +64,9 @@
                                                 <li><a href="#" style="color: #9d9d9d">Health Tracker</a></li>
                                                 <li><a href="#" style="color: #9d9d9d">Planner</a></li>
                                                 <li><a href="#" style="color: #9d9d9d">Healthy Eating</a></li>
-                                                <li><a href="#" style="color: #9d9d9d">Events</a></li>
+                                                <li><a href="events.html" style="color: #9d9d9d">Events</a></li>
                                                 <li><a href="contact.html" style="color: #9d9d9d">CONTACT</a></li>
-                                                <li class="login"><a href="#" style="color: #9d9d9d">Login</a></li>
+                                                <li class="login"><a href="login.html" style="color: #9d9d9d">Login</a></li>
 
                                                 <li>
                                                     <a href="#"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -76,12 +82,14 @@
                                                     </ul>
                                                 </li>
                                             </ul>
+
+
                                         </div>
-                                        </div>
+
+                                    </div>
                                 </nav>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </header> <!--End of header -->
@@ -93,12 +101,12 @@
                             <div class="row">
                                 <form>
                                     <caption><h2>LOGIN</h2></caption>
-                                    <label><b>Email</b></label>
+                                    <label><b>USERNAME</b></label>
                                     <br>
-                                    <input type="email" placeholder="Enter Email" name="email" required>
+                                    <input type="name" placeholder="USERNAME" name="email" required>
                                     <br>
-                                    <label><b>Password</b></label><br>
-                                    <input type="password" placeholder="Enter Password" name="psw" required>
+                                    <label><b>PASSWORD</b></label><br>
+                                    <input type="password" placeholder="PASSWORD" name="psw" required>
                                     <br>
                                     <br>
                                     <button type="submit" class="loginbtn">LOGIN</button>
