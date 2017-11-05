@@ -1,14 +1,4 @@
-.signup{
-    display:table;
-    margin-top: 5%;
-    margin-bottom: 5%;
-    margin-left: 35%;
-    margin-right:20%;
-}
 
-.signhead{
-    margin-left: 26%;
-}
 
 input[type=email], input[type=password] {
     width: 100%;
@@ -17,11 +7,6 @@ input[type=email], input[type=password] {
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
-}
-
-input[type=checkbox] {
-    transform: scale(1.5);
-
 }
 
 form {
@@ -43,7 +28,7 @@ label{
     display: none;
 }
 
-.signupbtn {
+.loginbtn {
     width: 100%;
 }
 
@@ -58,11 +43,11 @@ label{
     clear: both;
     display: table;
 }
-.signupbtn:hover{
+.loginbtn:hover{
     cursor: pointer;
 }
 @media screen and (max-width: 300px) {
-    .signupbtn {
+    .loginbtn {
         width: 100%;
     }
 }
