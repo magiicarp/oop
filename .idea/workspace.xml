@@ -2,12 +2,108 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="605ac02a-a6e8-4ac2-841e-63ef2bdae9f2" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/templates/includes/_navbar.html" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/assets/css/bootstrap-theme.min.css" afterPath="$PROJECT_DIR$/assets/css/bootstrap-theme.min.css" />
-      <change beforePath="$PROJECT_DIR$/assets/css/bootstrap.min.css" afterPath="$PROJECT_DIR$/assets/css/bootstrap.min.css" />
-      <change beforePath="$PROJECT_DIR$/assets/css/font-awesome.min.css" afterPath="$PROJECT_DIR$/assets/css/font-awesome.min.css" />
-      <change beforePath="$PROJECT_DIR$/assets/css/instagram.css" afterPath="$PROJECT_DIR$/assets/css/instagram.css" />
-      <change beforePath="$PROJECT_DIR$/assets/css/plugins.css" afterPath="$PROJECT_DIR$/assets/css/plugins.css" />
+      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/templates/README.md" />
+      <change beforePath="$PROJECT_DIR$/Readme.txt" afterPath="$PROJECT_DIR$/templates/Readme.txt" />
+      <change beforePath="$PROJECT_DIR$/assets/css/bmi.css" afterPath="$PROJECT_DIR$/static/css/bmi.css" />
+      <change beforePath="$PROJECT_DIR$/assets/css/bootstrap-theme.min.css" afterPath="$PROJECT_DIR$/static/css/bootstrap-theme.min.css" />
+      <change beforePath="$PROJECT_DIR$/assets/css/bootstrap.min.css" afterPath="$PROJECT_DIR$/static/css/bootstrap.min.css" />
+      <change beforePath="$PROJECT_DIR$/assets/css/font-awesome.min.css" afterPath="$PROJECT_DIR$/static/css/font-awesome.min.css" />
+      <change beforePath="$PROJECT_DIR$/assets/css/healthy eating  css/font-awesome.min.css" afterPath="$PROJECT_DIR$/static/css/healthy eating  css/font-awesome.min.css" />
+      <change beforePath="$PROJECT_DIR$/assets/css/healthy eating  css/main.css" afterPath="$PROJECT_DIR$/static/css/healthy eating  css/main.css" />
+      <change beforePath="$PROJECT_DIR$/assets/css/healthy eating  css/noscript.css" afterPath="$PROJECT_DIR$/static/css/healthy eating  css/noscript.css" />
+      <change beforePath="$PROJECT_DIR$/assets/css/instagram.css" afterPath="$PROJECT_DIR$/static/css/instagram.css" />
+      <change beforePath="$PROJECT_DIR$/assets/css/login.css" afterPath="$PROJECT_DIR$/static/css/login.css" />
+      <change beforePath="$PROJECT_DIR$/assets/css/magnific-popup.css" afterPath="$PROJECT_DIR$/static/css/magnific-popup.css" />
+      <change beforePath="$PROJECT_DIR$/assets/css/plugins.css" afterPath="$PROJECT_DIR$/static/css/plugins.css" />
+      <change beforePath="$PROJECT_DIR$/assets/css/responsive.css" afterPath="$PROJECT_DIR$/static/css/responsive.css" />
+      <change beforePath="$PROJECT_DIR$/assets/css/signup.css" afterPath="$PROJECT_DIR$/static/css/signup.css" />
+      <change beforePath="$PROJECT_DIR$/assets/css/style.css" afterPath="$PROJECT_DIR$/static/css/style.css" />
+      <change beforePath="$PROJECT_DIR$/assets/fonts/FontAwesome.otf" afterPath="$PROJECT_DIR$/static/fonts/FontAwesome.otf" />
+      <change beforePath="$PROJECT_DIR$/assets/fonts/fontawesome-webfont.eot" afterPath="$PROJECT_DIR$/static/fonts/fontawesome-webfont.eot" />
+      <change beforePath="$PROJECT_DIR$/assets/fonts/fontawesome-webfont.ttf" afterPath="$PROJECT_DIR$/static/fonts/fontawesome-webfont.ttf" />
+      <change beforePath="$PROJECT_DIR$/assets/fonts/fontawesome-webfont.woff" afterPath="$PROJECT_DIR$/static/fonts/fontawesome-webfont.woff" />
+      <change beforePath="$PROJECT_DIR$/assets/fonts/fontawesome-webfont.woff2" afterPath="$PROJECT_DIR$/static/fonts/fontawesome-webfont.woff2" />
+      <change beforePath="$PROJECT_DIR$/assets/images/abright.png" afterPath="$PROJECT_DIR$/static/images/abright.png" />
+      <change beforePath="$PROJECT_DIR$/assets/images/ch_col_icn.png" afterPath="$PROJECT_DIR$/static/images/ch_col_icn.png" />
+      <change beforePath="$PROJECT_DIR$/assets/images/ch_col_icn_h.png" afterPath="$PROJECT_DIR$/static/images/ch_col_icn_h.png" />
+      <change beforePath="$PROJECT_DIR$/assets/images/choose.png" afterPath="$PROJECT_DIR$/static/images/choose.png" />
+      <change beforePath="$PROJECT_DIR$/assets/images/clogo1.png" afterPath="$PROJECT_DIR$/static/images/clogo1.png" />
+      <change beforePath="$PROJECT_DIR$/assets/images/clogo10.png" afterPath="$PROJECT_DIR$/static/images/clogo10.png" />
+      <change beforePath="$PROJECT_DIR$/assets/images/clogo2.png" afterPath="$PROJECT_DIR$/static/images/clogo2.png" />
+      <change beforePath="$PROJECT_DIR$/assets/images/clogo3.png" afterPath="$PROJECT_DIR$/static/images/clogo3.png" />
+      <change beforePath="$PROJECT_DIR$/assets/images/clogo4.png" afterPath="$PROJECT_DIR$/static/images/clogo4.png" />
+      <change beforePath="$PROJECT_DIR$/assets/images/clogo5.png" afterPath="$PROJECT_DIR$/static/images/clogo5.png" />
+      <change beforePath="$PROJECT_DIR$/assets/images/clogo9.png" afterPath="$PROJECT_DIR$/static/images/clogo9.png" />
+      <change beforePath="$PROJECT_DIR$/assets/images/contact_icnbg.png" afterPath="$PROJECT_DIR$/static/images/contact_icnbg.png" />
+      <change beforePath="$PROJECT_DIR$/assets/images/contactbg.png" afterPath="$PROJECT_DIR$/static/images/contactbg.png" />
+      <change beforePath="$PROJECT_DIR$/assets/images/counterbg.jpg" afterPath="$PROJECT_DIR$/static/images/counterbg.jpg" />
+      <change beforePath="$PROJECT_DIR$/assets/images/divicebg.jpg" afterPath="$PROJECT_DIR$/static/images/divicebg.jpg" />
+      <change beforePath="$PROJECT_DIR$/assets/images/fancybox/fancybox_loading.gif" afterPath="$PROJECT_DIR$/static/images/fancybox/fancybox_loading.gif" />
+      <change beforePath="$PROJECT_DIR$/assets/images/fancybox/fancybox_loading@2x.gif" afterPath="$PROJECT_DIR$/static/images/fancybox/fancybox_loading@2x.gif" />
+      <change beforePath="$PROJECT_DIR$/assets/images/fancybox/fancybox_overlay.png" afterPath="$PROJECT_DIR$/static/images/fancybox/fancybox_overlay.png" />
+      <change beforePath="$PROJECT_DIR$/assets/images/fancybox/fancybox_sprite.png" afterPath="$PROJECT_DIR$/static/images/fancybox/fancybox_sprite.png" />
+      <change beforePath="$PROJECT_DIR$/assets/images/featureslid1.jpg" afterPath="$PROJECT_DIR$/static/images/featureslid1.jpg" />
+      <change beforePath="$PROJECT_DIR$/assets/images/footerbg.jpg" afterPath="$PROJECT_DIR$/static/images/footerbg.jpg" />
+      <change beforePath="$PROJECT_DIR$/assets/images/homebg.jpg" afterPath="$PROJECT_DIR$/static/images/homebg.jpg" />
+      <change beforePath="$PROJECT_DIR$/assets/images/iconbg1.png" afterPath="$PROJECT_DIR$/static/images/iconbg1.png" />
+      <change beforePath="$PROJECT_DIR$/assets/images/iconbg1h.png" afterPath="$PROJECT_DIR$/static/images/iconbg1h.png" />
+      <change beforePath="$PROJECT_DIR$/assets/images/iconbg2.png" afterPath="$PROJECT_DIR$/static/images/iconbg2.png" />
+      <change beforePath="$PROJECT_DIR$/assets/images/iconbgh2.png" afterPath="$PROJECT_DIR$/static/images/iconbgh2.png" />
+      <change beforePath="$PROJECT_DIR$/assets/images/info_iconbg.png" afterPath="$PROJECT_DIR$/static/images/info_iconbg.png" />
+      <change beforePath="$PROJECT_DIR$/assets/images/loading.gif" afterPath="$PROJECT_DIR$/static/images/loading.gif" />
+      <change beforePath="$PROJECT_DIR$/assets/images/logo.png" afterPath="$PROJECT_DIR$/static/images/logo.png" />
+      <change beforePath="$PROJECT_DIR$/assets/images/mapbg.jpg" afterPath="$PROJECT_DIR$/static/images/mapbg.jpg" />
+      <change beforePath="$PROJECT_DIR$/assets/images/pf1.jpg" afterPath="$PROJECT_DIR$/static/images/pf1.jpg" />
+      <change beforePath="$PROJECT_DIR$/assets/images/pf2.jpg" afterPath="$PROJECT_DIR$/static/images/pf2.jpg" />
+      <change beforePath="$PROJECT_DIR$/assets/images/pf3.jpg" afterPath="$PROJECT_DIR$/static/images/pf3.jpg" />
+      <change beforePath="$PROJECT_DIR$/assets/images/pf4.jpg" afterPath="$PROJECT_DIR$/static/images/pf4.jpg" />
+      <change beforePath="$PROJECT_DIR$/assets/images/pf5.jpg" afterPath="$PROJECT_DIR$/static/images/pf5.jpg" />
+      <change beforePath="$PROJECT_DIR$/assets/images/pf6.jpg" afterPath="$PROJECT_DIR$/static/images/pf6.jpg" />
+      <change beforePath="$PROJECT_DIR$/assets/images/pf7.jpg" afterPath="$PROJECT_DIR$/static/images/pf7.jpg" />
+      <change beforePath="$PROJECT_DIR$/assets/images/pf8.jpg" afterPath="$PROJECT_DIR$/static/images/pf8.jpg" />
+      <change beforePath="$PROJECT_DIR$/assets/images/pf9.jpg" afterPath="$PROJECT_DIR$/static/images/pf9.jpg" />
+      <change beforePath="$PROJECT_DIR$/assets/images/play.png" afterPath="$PROJECT_DIR$/static/images/play.png" />
+      <change beforePath="$PROJECT_DIR$/assets/images/skmenubg.png" afterPath="$PROJECT_DIR$/static/images/skmenubg.png" />
+      <change beforePath="$PROJECT_DIR$/assets/images/skmenubgh.png" afterPath="$PROJECT_DIR$/static/images/skmenubgh.png" />
+      <change beforePath="$PROJECT_DIR$/assets/images/stab1.png" afterPath="$PROJECT_DIR$/static/images/stab1.png" />
+      <change beforePath="$PROJECT_DIR$/assets/images/stabmenubg.png" afterPath="$PROJECT_DIR$/static/images/stabmenubg.png" />
+      <change beforePath="$PROJECT_DIR$/assets/images/stabmenubghv.png" afterPath="$PROJECT_DIR$/static/images/stabmenubghv.png" />
+      <change beforePath="$PROJECT_DIR$/assets/images/team1.jpg" afterPath="$PROJECT_DIR$/static/images/team1.jpg" />
+      <change beforePath="$PROJECT_DIR$/assets/images/team2.jpg" afterPath="$PROJECT_DIR$/static/images/team2.jpg" />
+      <change beforePath="$PROJECT_DIR$/assets/images/team3.jpg" afterPath="$PROJECT_DIR$/static/images/team3.jpg" />
+      <change beforePath="$PROJECT_DIR$/assets/images/team4.jpg" afterPath="$PROJECT_DIR$/static/images/team4.jpg" />
+      <change beforePath="$PROJECT_DIR$/assets/images/testbg.jpg" afterPath="$PROJECT_DIR$/static/images/testbg.jpg" />
+      <change beforePath="$PROJECT_DIR$/assets/images/tinified.zip" afterPath="$PROJECT_DIR$/static/images/tinified.zip" />
+      <change beforePath="$PROJECT_DIR$/assets/images/videobg.jpg" afterPath="$PROJECT_DIR$/static/images/videobg.jpg" />
+      <change beforePath="$PROJECT_DIR$/assets/js/gmaps.min.js" afterPath="$PROJECT_DIR$/static/js/gmaps.min.js" />
+      <change beforePath="$PROJECT_DIR$/assets/js/jquery.easing.1.3.js" afterPath="$PROJECT_DIR$/static/js/jquery.easing.1.3.js" />
+      <change beforePath="$PROJECT_DIR$/assets/js/jquery.magnific-popup.js" afterPath="$PROJECT_DIR$/static/js/jquery.magnific-popup.js" />
+      <change beforePath="$PROJECT_DIR$/assets/js/jquery.masonry.min.js" afterPath="$PROJECT_DIR$/static/js/jquery.masonry.min.js" />
+      <change beforePath="$PROJECT_DIR$/assets/js/jquery.mixitup.min.js" afterPath="$PROJECT_DIR$/static/js/jquery.mixitup.min.js" />
+      <change beforePath="$PROJECT_DIR$/assets/js/main.js" afterPath="$PROJECT_DIR$/static/js/main.js" />
+      <change beforePath="$PROJECT_DIR$/assets/js/plugins.js" afterPath="$PROJECT_DIR$/static/js/plugins.js" />
+      <change beforePath="$PROJECT_DIR$/assets/js/vendor/bootstrap.js" afterPath="$PROJECT_DIR$/static/js/vendor/bootstrap.js" />
+      <change beforePath="$PROJECT_DIR$/assets/js/vendor/bootstrap.min.js" afterPath="$PROJECT_DIR$/static/js/vendor/bootstrap.min.js" />
+      <change beforePath="$PROJECT_DIR$/assets/js/vendor/jquery-1.11.2.min.js" afterPath="$PROJECT_DIR$/static/js/vendor/jquery-1.11.2.min.js" />
+      <change beforePath="$PROJECT_DIR$/assets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js" afterPath="$PROJECT_DIR$/static/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js" />
+      <change beforePath="$PROJECT_DIR$/assets/js/vendor/npm.js" afterPath="$PROJECT_DIR$/static/js/vendor/npm.js" />
+      <change beforePath="$PROJECT_DIR$/bmi.html" afterPath="$PROJECT_DIR$/templates/bmi.html" />
+      <change beforePath="$PROJECT_DIR$/contact.html" afterPath="$PROJECT_DIR$/templates/contact.html" />
+      <change beforePath="$PROJECT_DIR$/eating.html" afterPath="$PROJECT_DIR$/templates/eating.html" />
+      <change beforePath="$PROJECT_DIR$/elements.html" afterPath="$PROJECT_DIR$/templates/elements.html" />
+      <change beforePath="$PROJECT_DIR$/events.html" afterPath="$PROJECT_DIR$/templates/events.html" />
+      <change beforePath="$PROJECT_DIR$/favicon.ico" afterPath="$PROJECT_DIR$/templates/favicon.ico" />
+      <change beforePath="$PROJECT_DIR$/generic.html" afterPath="$PROJECT_DIR$/templates/generic.html" />
+      <change beforePath="$PROJECT_DIR$/healthy eating/index.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/templates/index.html" />
+      <change beforePath="$PROJECT_DIR$/login.html" afterPath="$PROJECT_DIR$/templates/login.html" />
+      <change beforePath="$PROJECT_DIR$/marathon.html" afterPath="$PROJECT_DIR$/templates/marathon.html" />
+      <change beforePath="$PROJECT_DIR$/planner.html" afterPath="$PROJECT_DIR$/templates/planner.html" />
+      <change beforePath="$PROJECT_DIR$/signup.html" afterPath="$PROJECT_DIR$/templates/signup.html" />
+      <change beforePath="$PROJECT_DIR$/tracker.html" afterPath="$PROJECT_DIR$/templates/tracker.html" />
+      <change beforePath="$PROJECT_DIR$/zumba.html" afterPath="$PROJECT_DIR$/templates/zumba.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,9 +127,9 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="bootstrap.min.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/css/bootstrap.min.css">
+        <entry file="file://$PROJECT_DIR$/static/css/bootstrap.min.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="33579">
+            <state relative-caret-position="0">
               <caret line="1595" column="26" lean-forward="false" selection-start-line="1595" selection-start-column="26" selection-end-line="1595" selection-end-column="26" />
               <folding />
             </state>
@@ -41,9 +137,9 @@
         </entry>
       </file>
       <file leaf-file-name="bmi.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/css/bmi.css">
+        <entry file="file://$PROJECT_DIR$/static/css/bmi.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="539">
+            <state relative-caret-position="1155">
               <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
               <folding />
             </state>
@@ -51,9 +147,9 @@
         </entry>
       </file>
       <file leaf-file-name="bootstrap-theme.min.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/css/bootstrap-theme.min.css">
+        <entry file="file://$PROJECT_DIR$/static/css/bootstrap-theme.min.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-231">
+            <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
@@ -61,7 +157,7 @@
         </entry>
       </file>
       <file leaf-file-name="font-awesome.min.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/css/font-awesome.min.css">
+        <entry file="file://$PROJECT_DIR$/static/css/font-awesome.min.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -71,7 +167,7 @@
         </entry>
       </file>
       <file leaf-file-name="instagram.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/css/instagram.css">
+        <entry file="file://$PROJECT_DIR$/static/css/instagram.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -81,7 +177,7 @@
         </entry>
       </file>
       <file leaf-file-name="login.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/css/login.css">
+        <entry file="file://$PROJECT_DIR$/static/css/login.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="168">
               <caret line="8" column="20" lean-forward="false" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
@@ -91,9 +187,9 @@
         </entry>
       </file>
       <file leaf-file-name="magnific-popup.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/css/magnific-popup.css">
+        <entry file="file://$PROJECT_DIR$/static/css/magnific-popup.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
+            <state relative-caret-position="6447">
               <caret line="307" column="14" lean-forward="false" selection-start-line="307" selection-start-column="13" selection-end-line="307" selection-end-column="14" />
               <folding />
             </state>
@@ -101,30 +197,30 @@
         </entry>
       </file>
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.html">
+        <entry file="file://$PROJECT_DIR$/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="213">
-              <caret line="56" column="46" lean-forward="true" selection-start-line="56" selection-start-column="46" selection-end-line="56" selection-end-column="46" />
+            <state relative-caret-position="1134">
+              <caret line="54" column="97" lean-forward="false" selection-start-line="54" selection-start-column="97" selection-end-line="54" selection-end-column="97" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="planner.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/planner.html">
+      <file leaf-file-name="_navbar.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/includes/_navbar.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="189">
+              <caret line="9" column="7" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="planner.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/planner.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1302">
-              <caret line="62" column="109" lean-forward="true" selection-start-line="62" selection-start-column="109" selection-end-line="62" selection-end-column="109" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="plugins.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/css/plugins.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="33" column="33" lean-forward="false" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="33" />
+              <caret line="62" column="109" lean-forward="false" selection-start-line="62" selection-start-column="109" selection-end-line="62" selection-end-column="109" />
               <folding />
             </state>
           </provider>
@@ -136,8 +232,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
-        <option value="HTML File" />
         <option value="CSS File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -170,12 +266,13 @@
         <option value="$PROJECT_DIR$/tracker.html" />
         <option value="$PROJECT_DIR$/bmi.html" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/assets/css/bootstrap.min.css" />
         <option value="$PROJECT_DIR$/assets/css/bootstrap-theme.min.css" />
         <option value="$PROJECT_DIR$/assets/css/font-awesome.min.css" />
         <option value="$PROJECT_DIR$/assets/css/instagram.css" />
         <option value="$PROJECT_DIR$/assets/css/plugins.css" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/templates/includes/_navbar.html" />
       </list>
     </option>
   </component>
@@ -186,9 +283,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="984" />
-    <option name="width" value="943" />
-    <option name="height" value="1047" />
+    <option name="x" value="-8" />
+    <option name="width" value="976" />
+    <option name="height" value="1038" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -205,7 +302,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -213,20 +309,37 @@
               <item name="OOPP Website" type="b2602c69:ProjectViewProjectNode" />
               <item name="OOPP Website" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="OOPP Website" type="b2602c69:ProjectViewProjectNode" />
+              <item name="OOPP Website" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="OOPP Website" type="b2602c69:ProjectViewProjectNode" />
+              <item name="OOPP Website" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$USER_HOME$/PracticalWork/Week3" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../LibrarySystem/LibrarySystem.py" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Aaron Lam\PycharmProjects\OOPP Website\templates" />
+      <recent name="C:\Users\Aaron Lam\PycharmProjects\OOPP Website\static" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -242,8 +355,8 @@
   </component>
   <component name="RunManager" selected="JavaScript Debug.index.html">
     <configuration name="index.html (1)" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/OOPP Website/healthy eating/index.html" />
-    <configuration name="index.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/OOPP Website/index.html" />
-    <configuration name="planner.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/OOPP Website/planner.html" />
+    <configuration name="index.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/OOPP Website/templates/index.html" />
+    <configuration name="planner.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/OOPP Website/templates/planner.html" />
     <configuration name="signup.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/oop/signup.html" />
     <configuration name="tracker.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/oop/tracker.html" />
     <configuration name="page1" type="PythonConfigurationType" factoryName="Python">
@@ -430,7 +543,14 @@
       <option name="project" value="LOCAL" />
       <updated>1512540570401</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Rearranged css files">
+      <created>1512543346850</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1512543346850</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TodoView">
@@ -447,11 +567,11 @@
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32932165" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32603937" sideWeight="0.5088626" order="14" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32601535" sideWeight="0.4911374" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32601535" sideWeight="0.4911374" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16770834" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17552084" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26226014" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -534,23 +654,15 @@
     <MESSAGE value="master" />
     <MESSAGE value="Test Push" />
     <MESSAGE value="Integration Sucessful" />
-    <option name="LAST_COMMIT_MESSAGE" value="Integration Sucessful" />
+    <MESSAGE value="Rearranged css files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Rearranged css files" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="867">
-          <caret line="51" column="49" lean-forward="false" selection-start-line="51" selection-start-column="49" selection-end-line="51" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md" />
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="13" column="4" lean-forward="false" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
@@ -558,9 +670,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md" />
+    <entry file="file://$PROJECT_DIR$/templates/README.md" />
     <entry file="file://$PROJECT_DIR$/css.css" />
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="58" lean-forward="false" selection-start-line="5" selection-start-column="58" selection-end-line="5" selection-end-column="58" />
@@ -568,7 +680,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="58" lean-forward="false" selection-start-line="5" selection-start-column="58" selection-end-line="5" selection-end-column="58" />
@@ -576,10 +688,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md" />
+    <entry file="file://$PROJECT_DIR$/templates/README.md" />
     <entry file="file://$PROJECT_DIR$/css.css" />
-    <entry file="file://$PROJECT_DIR$/README.md" />
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/templates/README.md" />
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="7" lean-forward="false" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
@@ -587,8 +699,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md" />
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/templates/README.md" />
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="7" lean-forward="true" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
@@ -596,8 +708,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md" />
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/templates/README.md" />
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="7" lean-forward="true" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
@@ -605,7 +717,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md" />
+    <entry file="file://$PROJECT_DIR$/templates/README.md" />
     <entry file="file://$PROJECT_DIR$/testing" />
     <entry file="file://$PROJECT_DIR$/.idea/vcs.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -619,24 +731,24 @@
     <entry file="file://$PROJECT_DIR$/scss" />
     <entry file="file://$PROJECT_DIR$/css.css" />
     <entry file="file://$PROJECT_DIR$/assets/contact.html" />
-    <entry file="file://$PROJECT_DIR$/assets/images/abright.png">
+    <entry file="file://$PROJECT_DIR$/static/images/abright.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/images/choose.png">
+    <entry file="file://$PROJECT_DIR$/static/images/choose.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/zumba.html">
+    <entry file="file://$PROJECT_DIR$/templates/zumba.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="935">
           <caret line="55" column="83" lean-forward="false" selection-start-line="55" selection-start-column="83" selection-end-line="55" selection-end-column="83" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/marathon.html">
+    <entry file="file://$PROJECT_DIR$/templates/marathon.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1323">
           <caret line="63" column="73" lean-forward="false" selection-start-line="63" selection-start-column="73" selection-end-line="63" selection-end-column="73" />
@@ -644,42 +756,42 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bmi.py" />
-    <entry file="file://$PROJECT_DIR$/login.html">
+    <entry file="file://$PROJECT_DIR$/templates/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="861">
           <caret line="41" column="52" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="235" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tracker.html">
+    <entry file="file://$PROJECT_DIR$/templates/tracker.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3612">
           <caret line="172" column="54" lean-forward="false" selection-start-line="172" selection-start-column="54" selection-end-line="172" selection-end-column="54" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bmi.html">
+    <entry file="file://$PROJECT_DIR$/templates/bmi.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1428">
           <caret line="68" column="85" lean-forward="false" selection-start-line="68" selection-start-column="85" selection-end-line="68" selection-end-column="85" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/contact.html">
+    <entry file="file://$PROJECT_DIR$/templates/contact.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1407">
           <caret line="67" column="58" lean-forward="false" selection-start-line="67" selection-start-column="58" selection-end-line="67" selection-end-column="58" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/signup.html">
+    <entry file="file://$PROJECT_DIR$/templates/signup.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1638">
           <caret line="78" column="60" lean-forward="false" selection-start-line="78" selection-start-column="60" selection-end-line="78" selection-end-column="60" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/eating.html">
+    <entry file="file://$PROJECT_DIR$/templates/eating.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -693,7 +805,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Readme.txt">
+    <entry file="file://$PROJECT_DIR$/templates/Readme.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -701,7 +813,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/events.html">
+    <entry file="file://$PROJECT_DIR$/templates/events.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="539">
           <caret line="66" column="62" lean-forward="false" selection-start-line="66" selection-start-column="62" selection-end-line="66" selection-end-column="62" />
@@ -709,13 +821,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" column="18" lean-forward="true" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/templates/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="126">
@@ -725,8 +831,14 @@
           <second_editor />
         </state>
       </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="7" column="18" lean-forward="true" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/style.css">
+    <entry file="file://$PROJECT_DIR$/static/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -734,7 +846,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/signup.css">
+    <entry file="file://$PROJECT_DIR$/static/css/signup.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="73" lean-forward="false" selection-start-line="9" selection-start-column="73" selection-end-line="9" selection-end-column="73" />
@@ -742,47 +854,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/responsive.css">
+    <entry file="file://$PROJECT_DIR$/static/css/responsive.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/plugins.css">
+    <entry file="file://$PROJECT_DIR$/static/css/plugins.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
+        <state relative-caret-position="693">
           <caret line="33" column="33" lean-forward="false" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/bootstrap.min.css">
+    <entry file="file://$PROJECT_DIR$/static/css/bootstrap.min.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="33579">
+        <state relative-caret-position="0">
           <caret line="1595" column="26" lean-forward="false" selection-start-line="1595" selection-start-column="26" selection-end-line="1595" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/bmi.css">
+    <entry file="file://$PROJECT_DIR$/static/css/bmi.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="539">
+        <state relative-caret-position="1155">
           <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/bootstrap-theme.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-231">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/font-awesome.min.css">
+    <entry file="file://$PROJECT_DIR$/static/css/bootstrap-theme.min.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -790,7 +893,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/instagram.css">
+    <entry file="file://$PROJECT_DIR$/static/css/font-awesome.min.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -798,7 +901,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/login.css">
+    <entry file="file://$PROJECT_DIR$/static/css/instagram.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/login.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="8" column="20" lean-forward="false" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
@@ -806,26 +917,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/magnific-popup.css">
+    <entry file="file://$PROJECT_DIR$/static/css/magnific-popup.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
+        <state relative-caret-position="6447">
           <caret line="307" column="14" lean-forward="false" selection-start-line="307" selection-start-column="13" selection-end-line="307" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/templates/planner.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="56" column="46" lean-forward="true" selection-start-line="56" selection-start-column="46" selection-end-line="56" selection-end-column="46" />
+        <state relative-caret-position="1302">
+          <caret line="62" column="109" lean-forward="false" selection-start-line="62" selection-start-column="109" selection-end-line="62" selection-end-column="109" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/planner.html">
+    <entry file="file://$PROJECT_DIR$/../LibrarySystem/LibrarySystem.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1302">
-          <caret line="62" column="109" lean-forward="true" selection-start-line="62" selection-start-column="109" selection-end-line="62" selection-end-column="109" />
+        <state relative-caret-position="273">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#75#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1134">
+          <caret line="54" column="97" lean-forward="false" selection-start-line="54" selection-start-column="97" selection-end-line="54" selection-end-column="97" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/includes/_navbar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="9" column="7" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
           <folding />
         </state>
       </provider>
