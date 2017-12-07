@@ -2,21 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="605ac02a-a6e8-4ac2-841e-63ef2bdae9f2" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/templates/flaskroute.py" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/templates/bmi.html" afterPath="$PROJECT_DIR$/templates/bmi.html" />
-      <change beforePath="$PROJECT_DIR$/templates/contact.html" afterPath="$PROJECT_DIR$/templates/contact.html" />
-      <change beforePath="$PROJECT_DIR$/templates/eating.html" afterPath="$PROJECT_DIR$/templates/eating.html" />
-      <change beforePath="$PROJECT_DIR$/templates/elements.html" afterPath="$PROJECT_DIR$/templates/elements.html" />
-      <change beforePath="$PROJECT_DIR$/templates/events.html" afterPath="$PROJECT_DIR$/templates/events.html" />
-      <change beforePath="$PROJECT_DIR$/templates/generic.html" afterPath="$PROJECT_DIR$/templates/generic.html" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" afterPath="$PROJECT_DIR$/templates/index.html" />
-      <change beforePath="$PROJECT_DIR$/templates/login.html" afterPath="$PROJECT_DIR$/templates/login.html" />
-      <change beforePath="$PROJECT_DIR$/templates/marathon.html" afterPath="$PROJECT_DIR$/templates/marathon.html" />
-      <change beforePath="$PROJECT_DIR$/templates/planner.html" afterPath="$PROJECT_DIR$/templates/planner.html" />
-      <change beforePath="$PROJECT_DIR$/templates/signup.html" afterPath="$PROJECT_DIR$/templates/signup.html" />
-      <change beforePath="$PROJECT_DIR$/templates/tracker.html" afterPath="$PROJECT_DIR$/templates/tracker.html" />
-      <change beforePath="$PROJECT_DIR$/templates/zumba.html" afterPath="$PROJECT_DIR$/templates/zumba.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -576,7 +562,14 @@
       <option name="project" value="LOCAL" />
       <updated>1512626774072</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Updated CSS Directory">
+      <created>1512638853528</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1512638853529</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TodoView">
@@ -684,7 +677,8 @@
     <MESSAGE value="Integration Sucessful" />
     <MESSAGE value="Rearranged css files" />
     <MESSAGE value="Update Structure" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update Structure" />
+    <MESSAGE value="Updated CSS Directory" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated CSS Directory" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
