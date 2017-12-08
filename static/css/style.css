@@ -7,6 +7,19 @@ Author URI: http://bootstrapthemes.co
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+
+.plannericonbutton {
+    width: 250px;
+    height: 100px;
+    color: #ffa500;
+    background: #fff;
+    border: 2px solid #D3D3D3;
+}
+
+.plannericonbutton:hover {
+    background-color: #ffa500;
+}
+
 html,
 body {
     background-color: #fff;
