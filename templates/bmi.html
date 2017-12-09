@@ -99,7 +99,7 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="row">
-                                <form>
+                                <form name="bmiform">
                                     <caption><h2>BMI</h2></caption>
                                     <label><b>WEIGHT IN KILOGRAMS</b></label>
                                     <br>
@@ -109,7 +109,13 @@
                                     <input type="number" placeholder="HEIGHT" name="height" required>
                                     <br>
                                     <br>
-                                    <button type="submit" class="bmibtn">COMPUTE BMI</button>
+                                    <button type="button" class="bmibtn" onClick="calculateBmi()">COMPUTE BMI</button>
+                                    <br/>
+                                    <br/>
+                                    BMI: <input style="border:none;" type="text" name="bmi">
+                                    <br/>
+                                    Your Range: <input style="border:none;" type="text" name="range">
+                                    <br/>
                                 </form>
                                 <h2>BMI CATEGORIES</h2>
                             <p>Underweight = <18.5 <br>Normal weight = 18.5–24.9<br>Overweight = 25–29.9<br>Obesity = BMI of 30 or greater</p>
@@ -228,7 +234,29 @@
                                                 };
                                                 var map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
                                             }
-        </script>
+
+
+            function calculateBmi() {
+                var weight = document.bmiform.weight.value
+                var height = document.bmiform.height.value
+                if(weight > 0 && height > 0){
+                var finalBmi = weight/(height/100*height/100)
+                    document.bmiform.bmi.value = finalBmi
+                if(finalBmi < 18.5){
+                    document.bmiform.range.value = "BMI too low, you are at risk"
+                }
+                if(finalBmi > 18.5 && finalBmi < 25){
+                    document.bmiform.range.value = "You are not at risk"
+                }
+                if(finalBmi > 25){
+                    document.bmiform.range.value = "BMI too high, you are at risk."
+                }
+                }
+                else{
+                    alert("Please fill in all the required blank")
+                }
+                }
+</script>
 
         <script src="../static/js/plugins.js"></script>
         <script src="../static/js/main.js"></script>
