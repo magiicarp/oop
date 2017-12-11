@@ -1,28 +1,31 @@
-from flask import Flask, render_template, request, flash, redirect, url_for
-from wtforms import Form, StringField, TextAreaField, RadioField, SelectField
+from flask import Flask, render_template
 
-import firebase_admin
-from firebase_admin import credentials, db
-
-cred = credentials.Certificate('C:/Users/Aaron Lam/PycharmProjects/LibrarySystem')
-default_app = firebase_admin.initialize_app(cred, {
-    'databaseURL': 'database url where you noted down in 5.1 Create Firebase Account '
-})
-
-root = db.reference()
 
 app = Flask(__name__)
-
-if __name__ == '__main__':
-    app.secret_key = 'secret123'
-    app.run()
-
-
 
 @app.route('/home')
 def home():
     return render_template('index.html')
 
-@app.route('/tracker')
-def tracker():
-    return render_template('tracker.html')
+@app.route('/healthyeating')
+def healthyeating():
+    return render_template('eating.html')
+
+@app.route('/planner')
+def planner():
+    return render_template('planner.html')
+
+@app.route('/events')
+def events():
+    return render_template('events.html')
+
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
+
+@app.route('/login')
+def login():
+    return render_template('login.html')
+
+if __name__ == '__main__':
+    app.run()

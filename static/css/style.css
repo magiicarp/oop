@@ -647,7 +647,7 @@ input::-ms-input-placeholder {
 }
 /*heading title all area*/
 .head_title{
-    margin-bottom:90px;
+    margin-bottom:20px;
 }
 .head_title h3{
     color:#413d4b;
@@ -980,7 +980,7 @@ input::-ms-input-placeholder {
 .main_othersservice_area{}
 .othersservice .single_othersservice {
     margin-bottom:30px;
-    margin-top:20px;
+    margin-top:10px;
     display: inline-block;
     width:100%;
 
