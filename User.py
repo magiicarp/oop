@@ -1,8 +1,8 @@
 class User:
-    def __init__(self,name,username,birthdate,email,password):
+    def __init__(self,name,username,age,email,password):
         self.__name = name
         self.__username = username
-        self.__birthdate = birthdate
+        self.__age = age
         self.__email = email
         self.__password = password
 
@@ -22,11 +22,11 @@ class User:
         return self.__password
     def set_password(self,password):
         self.__password = password
-#BIRTHDATE
-    def get_birthdate(self):
-        return self.__birthdate
-    def set_birthdate(self,birthdate):
-        self.__birthdate = birthdate
+#AGE
+    def get_age(self):
+        return self.__age
+    def set_birthdate(self,age):
+        self.__age = age
 #EMAIL
     def get_email(self):
         return self.__email
