@@ -6,7 +6,9 @@ import firebase_admin
 from firebase_admin import credentials, db
 from regions import *
 import User as use
-import Contact as cont
+import Contact as c
+from flask_mail import Mail, Message
+
 
 cred = credentials.Certificate('cred/oopp-267d4-firebase-adminsdk-4rnbe-c9137365f3.json')
 default_app = firebase_admin.initialize_app(cred, {
@@ -15,8 +17,10 @@ default_app = firebase_admin.initialize_app(cred, {
 
 app = Flask(__name__)
 app.secret_key = 'shush'
+mail = Mail(app)
 
 userRefer = db.reference('userbase')
+#contactRefer = db.reference('contact')
 root = db.reference()
 
 #REGISTER FORM
@@ -92,27 +96,36 @@ def events():
     return render_template('events.html')
 #CONTACT FORM
 class ContactForm(Form):
-    name = StringField("Name",[validators.Length(min=4,max=50)])
-    email = EmailField("Email",[validators.DataRequired(), validators.Email()])
-    subject = StringField("Subject",[validators.Length(min=4, max=80)])
-    message = TextAreaField("Message",[validators.Length(min=30)])
+    name = StringField('Your Name:', [validators.DataRequired()])
+    email = StringField('Your e-mail address:', [validators.DataRequired(), validators.Email('your@email.com')])
+    message = TextAreaField('Your message:', [validators.DataRequired()])
+    submit = SubmitField('Send Message')
 
 #@app.route('/contact', methods=['GET','POST'])
 #def contact():
 #    form = ContactForm()
 #    if request.method == 'POST':
-#        flash('Form Submitted!','success')
-#        contact_db = root.child('contact_us')
-#        contact_ = cont.Contact(name,email,subject,message)
-#        contact_db.push({
-#            'name': contact_.get_name(),
-#            'email': contact_.get_email(),
-#            'subject': contact_.get_subject(),
-#            'message': contact_.get_message()
-#        })
+#        if form.validate() == False:
+#            flash('Please fill in all fields','danger')
+#            return render_template('contact.html',form=form)
+#        else:
+#            msg = Message("Hello" + form.name.data, recipients=['angelic.pen@gmail.com'])
+#            msg.body = """
+#                        From: %s <%s>,
+#                        %s
+#                        """ % (form.name.data, form.email.data, form.message.data)
+#            mail.send(msg)
+#            contact_db = root.child('contact')
+#            contact_us = c.Contact()
+#            contact_db.push({
+#                'name': contact_us.get_name(),
+#                'email': contact_us.get_email(),
+#                'subject': contact_us.get_subject(),
+#                'message': contact_us.get_message()
+#            })
+#            return "Successfully  sent message!"
 #    elif request.method == 'GET':
-#        return render_template('contact.html',form=form)
-#    return render_template('contact.html', form=form)
+#        return render_template('contact.html', form=form)
 
 
 if __name__ == '__main__':
