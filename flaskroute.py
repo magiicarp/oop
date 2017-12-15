@@ -61,27 +61,9 @@ def register():
             'password': user.get_password()
         })
         flash('You have registered successfully', 'success')
-        return redirect(url_for('login'))
+        return redirect(url_for('home'))
     return render_template('register.html', form=form)
 
-#LOGIN FORM
-class Loginform(Form):
-    un = StringField('Username', [validators.DataRequired()])
-    password = PasswordField('Password', [validators.DataRequired])
-
-#USER LOGIN
-@app.route('/login',methods=['GET','POST'])
-def login():
-    form = Loginform(request.form)
-    if request.method == 'POST' and form.validate():
-        un = form.un.data
-        password = sha256_crypt.encrypt(str(form.password.data))
-        if ['username'] == id and ['password'] == password:
-                session['logged_in'] = True
-                session['id'] = id
-                return redirect(url_for('index.html'))
-        flash('Invalid username or password', 'danger')
-        return render_template('login.html')
 
 @app.route('/healthyeating')
 def healthyeating():
@@ -94,38 +76,6 @@ def planner():
 @app.route('/events')
 def events():
     return render_template('events.html')
-#CONTACT FORM
-class ContactForm(Form):
-    name = StringField('Your Name:', [validators.DataRequired()])
-    email = StringField('Your e-mail address:', [validators.DataRequired(), validators.Email('your@email.com')])
-    message = TextAreaField('Your message:', [validators.DataRequired()])
-    submit = SubmitField('Send Message')
-
-#@app.route('/contact', methods=['GET','POST'])
-#def contact():
-#    form = ContactForm()
-#    if request.method == 'POST':
-#        if form.validate() == False:
-#            flash('Please fill in all fields','danger')
-#            return render_template('contact.html',form=form)
-#        else:
-#            msg = Message("Hello" + form.name.data, recipients=['angelic.pen@gmail.com'])
-#            msg.body = """
-#                        From: %s <%s>,
-#                        %s
-#                        """ % (form.name.data, form.email.data, form.message.data)
-#            mail.send(msg)
-#            contact_db = root.child('contact')
-#            contact_us = c.Contact()
-#            contact_db.push({
-#                'name': contact_us.get_name(),
-#                'email': contact_us.get_email(),
-#                'subject': contact_us.get_subject(),
-#                'message': contact_us.get_message()
-#            })
-#            return "Successfully  sent message!"
-#    elif request.method == 'GET':
-#        return render_template('contact.html', form=form)
 
 
 if __name__ == '__main__':
