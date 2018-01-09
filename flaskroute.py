@@ -171,4 +171,4 @@ def delete_targets(id):
     return redirect(url_for('viewtargets'))
 if __name__ == '__main__':
     app.secret_key = 'secret12'
-    app.run()
+    app.run(port='80')
