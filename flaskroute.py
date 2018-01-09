@@ -4,10 +4,10 @@ from wtforms.fields.html5 import DateField,EmailField
 from passlib.hash import sha256_crypt
 import firebase_admin
 from firebase_admin import credentials, db
+from Forms import RegisterForm
 from regions import *
 import User as use
 import Contact as c
-from flask_mail import Mail, Message
 
 
 cred = credentials.Certificate('cred/oopp-267d4-firebase-adminsdk-4rnbe-c9137365f3.json')
@@ -17,25 +17,10 @@ default_app = firebase_admin.initialize_app(cred, {
 
 app = Flask(__name__)
 app.secret_key = 'shush'
-mail = Mail(app)
 
 userRefer = db.reference('userbase')
 #contactRefer = db.reference('contact')
 root = db.reference()
-
-#REGISTER FORM
-class RegisterForm(Form):
-    name = StringField('Name', [validators.Length(min=1, max=50)])
-    age = IntegerField('Age',[validators.NumberRange(min=10,max=120)])
-    username = StringField('Username', [validators.Length(min=4, max=25)])
-    email = EmailField('Email address', [validators.DataRequired(), validators.Email()])
-    password = PasswordField('Password', [
-        validators.DataRequired(),
-        validators.EqualTo('confirm', message='Passwords do not match')
-    ])
-    confirm = PasswordField('Confirm Password')
-
-
 
 @app.route('/')
 def index():
