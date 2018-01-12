@@ -30,7 +30,7 @@ def planner():
 class Plannerform(Form):
     age = SelectField('What is your age group?', choices = [('', 'Select'), ('CHILDREN', 'Children'), ('TEENAGER', 'Teenager'), ('ADULT', 'Adult'), ('ELDERLY', 'Elderly')],default='')
     type = SelectField('What type of exercise would you like to do?', choices = [('', 'Select'), ('AEROBICS', 'Aerobics'), ('STRENGTH', 'Strength'), ('FLEXIBILITY', 'Flexibility'), ('BALANCE', 'Balance')], default ='')
-    time = SelectField('Choose the duration of exercise', choice    s = [('', 'Select'), ('15min', '15 Min'), ('30min', '30 Min'), ('45min', '45 Min'), ('60min', '60 Min')], default='')
+    time = SelectField('Choose the duration of exercise', choices = [('', 'Select'), ('15min', '15 Min'), ('30min', '30 Min'), ('45min', '45 Min'), ('60min', '60 Min')], default='')
 
 @app.route('/plannerform', methods=['GET','POST'])
 def plannerform():
@@ -175,4 +175,4 @@ def delete_targets(id):
     return redirect(url_for('viewtargets'))
 if __name__ == '__main__':
     app.secret_key = 'secret12'
-    app.run(port='80')
+    app.run(port=80)
