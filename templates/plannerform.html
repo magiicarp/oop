@@ -1,59 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
 
 {% extends 'layout.html' %}
 {% block title %}Home{% endblock %}
 {% block body %}
 {% from "includes/_formhelper.html" import render_field %}
     <body data-spy="scroll" data-target=".navbar" data-offset="200">
-    <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-    {% if plannerform.errors %}
-        <div class="alert alert-danger">
-            <ul>
-                {% for field_name, field_errors in plannerform.errors|dictsort if field_errors %}
-                    {% for error in field_errors %}
-                        <li>{{ plannerform[field_name].label }}: {{ error }}</li>
+        <!--[if lt IE 8]>
+                <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+            <![endif]-->
+        {% if plannerform.errors %}
+            <div class="alert alert-danger">
+                <ul>
+                    {% for field_name, field_errors in plannerform.errors|dictsort if field_errors %}
+                        {% for error in field_errors %}
+                            <li>{{ plannerform[field_name].label }}: {{ error }}</li>
+                        {% endfor %}
                     {% endfor %}
-                {% endfor %}
-            </ul>
-        </div>
-    {% endif %}
-    <div class="content">
-        <h1>
-            Exercise Planner
-        </h1>
+                </ul>
+            </div>
+        {% endif %}
+        <div class="content">
+            <h1>
+                Exercise Planner
+            </h1>
 
-    </div>
+        </div>
+        <div class="container">
+            <div class="row">
 
-    <form action="#" id="formid" method="POST">
-        <div class="row">
-            <div class="col-sm-6">
-                <div class="form-group">
-                    {{ render_field(plannerform.age, class_="") }}
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <div class="form-group">
-                    {{ render_field(plannerform.type, class_="") }}
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-6">
-                <div class="form-group">
-                    {{ render_field(plannerform.time, class_="") }}
-                </div>
+                        <form action="#" id="formid" method="POST">
+
+                            {{ render_field(plannerform.age, class_="") }}
+
+                            {{ render_field(plannerform.type, class_="") }}
+
+                            {{ render_field(plannerform.time, class_="") }}
+
+                            <button type="submit" value="submit">Submit</button>
+                        </form>
+
             </div>
         </div>
-        <button type="submit">Submit</button>
-    </form>
-    <div class="scrollup">
-        <a href="#"><i class="fa fa-chevron-up"></i></a>
-    </div>
+
+
+        <div class="scrollup">
+            <a href="#"><i class="fa fa-chevron-up"></i></a>
+        </div>
 
 
     </body>
 {% endblock %}
-</html>
