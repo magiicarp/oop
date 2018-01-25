@@ -15,7 +15,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/OOPP_Website$flaskroute.coverage" NAME="flaskroute Coverage Results" MODIFIED="1516903393915" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/OOPP_Website$flaskroute.coverage" NAME="flaskroute Coverage Results" MODIFIED="1516903520677" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/oop$flaskroute.coverage" NAME="flaskroute Coverage Results" MODIFIED="1515461366232" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="DatabaseView">
@@ -31,7 +31,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="flaskroute.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="flaskroute.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/flaskroute.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="2520">
@@ -86,14 +86,14 @@
       <file leaf-file-name="_navbar.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/includes/_navbar.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="567">
-              <caret line="27" column="87" lean-forward="false" selection-start-line="27" selection-start-column="87" selection-end-line="27" selection-end-column="87" />
+            <state relative-caret-position="483">
+              <caret line="23" column="60" lean-forward="true" selection-start-line="23" selection-start-column="60" selection-end-line="23" selection-end-column="60" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_footer.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="_footer.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/includes/_footer.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="420">
@@ -645,7 +645,14 @@
       <option name="project" value="LOCAL" />
       <updated>1516902867793</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Navbar and footer Logo fix">
+      <created>1516903452952</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1516903452952</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TodoView">
@@ -759,7 +766,8 @@
     <MESSAGE value="Planner Form" />
     <MESSAGE value="Planner form update (flaskroute/plannerform.html)" />
     <MESSAGE value="New Plannerform updates and new Routine pages" />
-    <option name="LAST_COMMIT_MESSAGE" value="New Plannerform updates and new Routine pages" />
+    <MESSAGE value="Navbar and footer Logo fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Navbar and footer Logo fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1053,26 +1061,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/includes/_navbar.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="27" column="87" lean-forward="false" selection-start-line="27" selection-start-column="87" selection-end-line="27" selection-end-column="87" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/includes/_formhelper.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="31" lean-forward="true" selection-start-line="0" selection-start-column="31" selection-end-line="0" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/includes/_footer.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="20" column="43" lean-forward="true" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
           <folding />
         </state>
       </provider>
@@ -1084,6 +1076,22 @@
           <folding>
             <element signature="e#0#75#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/includes/_navbar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="23" column="60" lean-forward="true" selection-start-line="23" selection-start-column="60" selection-end-line="23" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/includes/_footer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="20" column="43" lean-forward="true" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
+          <folding />
         </state>
       </provider>
     </entry>
