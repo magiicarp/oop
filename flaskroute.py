@@ -24,9 +24,9 @@ def healthyeating():
 
 
 class Plannerform(Form):
-    age = SelectField('What is your age group?', choices = [('', 'Select'), ('CHILDREN', 'Children'), ('TEENAGER', 'Teenager'), ('ADULT', 'Adult'), ('ELDERLY', 'Elderly')],default='')
-    type = SelectField('What type of exercise would you like to do?', choices = [('', 'Select'), ('AEROBICS', 'Aerobics'), ('STRENGTH', 'Strength'), ('FLEXIBILITY', 'Flexibility'), ('BALANCE', 'Balance')], default ='')
-    time = SelectField('Choose the duration of exercise', choices = [('', 'Select'), ('15min', '15 Min'), ('30min', '30 Min'), ('45min', '45 Min'), ('60min', '60 Min')], default='')
+    age = SelectField('What is your age group?', choices = [('', 'Select'), ('TEENAGER', 'Teenager'), ('ADULT', 'Adult'), ('ELDERLY', 'Elderly')],default='')
+    type = SelectField('What type of exercise would you like to do?', choices = [('', 'Select'), ('AEROBICS', 'Aerobics'), ('STRENGTH', 'Strength'), ('FLEXIBILITY', 'Flexibility')], default ='')
+    time = SelectField('Choose the duration of exercise', choices = [('', 'Select'), ('30min', '30 Min'), ('60min', '60 Min'), ('90min', '90 Min')], default='')
 
 @app.route('/planner', methods=['GET','POST'])
 def plannerform():
@@ -40,105 +40,87 @@ def plannerform():
 
         if age == 'TEENAGER':
             if type == 'AEROBICS':
-                if time == '15min' :
+                if time == '30min' :
                     routine = 'routine_1'
-                elif time == '30min':
-                    routine = 'routine_2'
-                elif time == '45min':
-                    routine = 'routine_3'
                 elif time == '60min':
-                    routine = 'routine_4'
+                    routine = 'routine_2'
+                elif time == '90min':
+                    routine = 'routine_3'
 
             elif type == 'STRENGTH':
-                if time == '15min' :
+                if time == '30min' :
+                    routine = 'routine_4'
+                elif time == '60min':
                     routine = 'routine_5'
-                elif time == '30min':
+                elif time == '90min':
                     routine = 'routine_6'
-                elif time == '45min':
+
+            elif type == 'FLEXIBILITY':
+                if time == '30min' :
                     routine = 'routine_7'
                 elif time == '60min':
                     routine = 'routine_8'
-
-            elif type == 'FLEXIBILITY':
-                if time == '15min' :
+                elif time == '90min':
                     routine = 'routine_9'
-                elif time == '30min':
-                    routine = 'routine_10'
-                elif time == '45min':
-                    routine = 'routine_11'
-                elif time == '60min':
-                    routine = 'routine_12'
 
         elif age == 'ADULT':
             if type == 'AEROBICS':
-                if time == '15min':
-                    routine = 'routine_13'
-                elif time == '30min':
-                    routine = 'routine_14'
-                elif time == '45min':
-                    routine = 'routine_15'
+                if time == '30min':
+                    routine = 'routine_10'
                 elif time == '60min':
-                    routine = 'routine_16'
+                    routine = 'routine_11'
+                elif time == '90min':
+                    routine = 'routine_12'
 
             elif type == 'STRENGTH':
-                if time == '15min':
-                    routine = 'routine_17'
-                elif time == '30min':
-                    routine = 'routine_18'
-                elif time == '45min':
-                    routine = 'routine_19'
+                if time == '30min':
+                    routine = 'routine_13'
                 elif time == '60min':
-                    routine = 'routine_20'
+                    routine = 'routine_14'
+                elif time == '90min':
+                    routine = 'routine_15'
 
             elif type == 'FLEXIBILITY':
-                if time == '15min':
-                    routine = 'routine_21'
-                elif time == '30min':
-                    routine = 'routine_22'
-                elif time == '45min':
-                    routine = 'routine_23'
+                if time == '30min':
+                    routine = 'routine_16'
                 elif time == '60min':
-                    routine = 'routine_24'
+                    routine = 'routine_17'
+                elif time == '90min':
+                    routine = 'routine_18'
 
         elif age == 'ELDERLY':
             if type == 'AEROBICS':
-                if time == '15min':
-                    routine = 'routine_25'
-                elif time == '30min':
-                    routine = 'routine_26'
-                elif time == '45min':
-                    routine = 'routine_27'
+                if time == '30min':
+                    routine = 'routine_19'
                 elif time == '60min':
-                    routine = 'routine_28'
+                    routine = 'routine_20'
+                elif time == '90min':
+                    routine = 'routine_21'
 
             elif type == 'STRENGTH':
-                if time == '15min':
-                    routine = 'routine_29'
-                elif time == '30min':
-                    routine = 'routine_30'
-                elif time == '45min':
-                    routine = 'routine_31'
+                if time == '30min':
+                    routine = 'routine_22'
                 elif time == '60min':
-                    routine = 'routine_32'
+                    routine = 'routine_23'
+                elif time == '90min':
+                    routine = 'routine_24'
 
             elif type == 'FLEXIBILITY':
-                if time == '15min':
-                    routine = 'routine_33'
-                elif time == '30min':
-                    routine = 'routine_34'
-                elif time == '45min':
-                    routine = 'routine_35'
+                if time == '30min':
+                    routine = 'routine_25'
                 elif time == '60min':
-                    routine = 'routine_36'
+                    routine = 'routine_26'
+                elif time == '90min':
+                    routine = 'routine_27'
 
         return redirect(url_for(routine))
 
     return render_template('plannerform.html',plannerform=plannerform)
 
 
-@app.route('/routine_2')
-def routine_2():
-    return render_template('routine_2.html')
+@app.route('/routine_1')
+def routine_1():
+    return render_template('routine_1.html')
 
 
 
