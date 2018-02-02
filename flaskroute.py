@@ -6,19 +6,18 @@ from targets2 import Target
 from bmi2 import Bmi
 from User import User
 from datetime import datetime
+from RegisterProgram import Registerform
 import pygal
 from pygal.style import LightSolarizedStyle
-#import plotly.plotly as py
-#import plotly.graph_objs as go
-#import plotly.offline as ply
-#import matplotlib.pyplot as plt
+
 
 app = Flask(__name__)
 
-cred = credentials.Certificate('./cred/targets-settings-firebase-adminsdk-04p4y-fa9131dc22.json')
+cred = credentials.Certificate('./cred/oopp-267d4-firebase-adminsdk-4rnbe-fb1b31a720.json')
 default_app = firebase_admin.initialize_app(cred, {
-    'databaseURL': 'https://targets-settings.firebaseio.com/'
+    'databaseURL': 'https://oopp-267d4.firebaseio.com/'
 })
+
 
 root = db.reference()
 targets_ref = root.child('targets')
@@ -27,10 +26,46 @@ ref2 = db.reference('BMI')
 
 now = datetime.now()
 
+program = db.reference('program')
+registerform = db.reference('registerform')
+
 @app.route('/')
 def home():
     return render_template('index.html')
 
+
+class RegisterForm(Form):
+    name = StringField('Please enter your full name', [validators.Length(min=1, max=150), validators.DataRequired()])
+    gender = SelectField('What is your Gender?', choices = [('', 'Select'), ('FEMALE', 'Female'), ('MALE', 'Male')],default='')
+    email = StringField('Email', [validators.Length(min=1, max=150), validators.DataRequired()])
+    contact = StringField('Contact Number', [validators.Length(min=8, max=10), validators.DataRequired()])
+    weight = StringField('Weight (KG)', [validators.Length(min=1, max=150), validators.DataRequired()])
+    height = StringField('Height (M)', [validators.Length(min=1, max=150), validators.DataRequired()])
+
+@app.route('/registerprogram', methods=['GET','POST'])
+def registerform():
+    registerprog = RegisterForm(request.form)
+    if request.method == 'POST' and registerprog.validate():
+        name = registerprog.name.data
+        gender = registerprog.gender.data
+        email = registerprog.email.data
+        contact = registerprog.contact.data
+        weight = registerprog.weight.data
+        height = registerprog.height.data
+
+        registerform = Registerform(name, gender, email, contact, weight, height)
+
+        registerform_db = root.child('registerform')
+        registerform_db.push({
+            'name': registerform.get_name(),
+            'gender': registerform.get_gender(),
+            'email': registerform.get_email(),
+            'contact': registerform.get_contact(),
+            'weight': registerform.get_weight(),
+            'height': registerform.get_height()
+        })
+
+    return render_template('registerform.html',registerform=registerprog)
 
 class Plannerform(Form):
     age = SelectField('What is your age group?',[validators.DataRequired()], choices = [('', 'Select'), ('TEENAGER/ADULT', 'Teenager/Adult (Below 50)'), ('ELDERLY', 'Elderly (above 50)')],default='')
