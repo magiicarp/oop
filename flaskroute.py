@@ -1,11 +1,17 @@
 from flask import Flask, render_template, request ,flash, redirect, url_for
 from wtforms import Form, StringField, TextAreaField, RadioField, SelectField, SubmitField, validators
-from target1 import Target
 import firebase_admin
 from firebase_admin import credentials, db
-from target1 import Target
-#from bmi1 import Bmi
+from targets2 import Target
+from bmi2 import Bmi
 from User import User
+from datetime import datetime
+import pygal
+from pygal.style import LightSolarizedStyle
+#import plotly.plotly as py
+#import plotly.graph_objs as go
+#import plotly.offline as ply
+#import matplotlib.pyplot as plt
 
 app = Flask(__name__)
 
@@ -16,6 +22,10 @@ default_app = firebase_admin.initialize_app(cred, {
 
 root = db.reference()
 targets_ref = root.child('targets')
+ref1 = db.reference()
+ref2 = db.reference('BMI')
+
+now = datetime.now()
 
 @app.route('/')
 def home():
@@ -184,42 +194,73 @@ def tracker():
     return render_template('tracker.html')
 
 
+class bmiform(Form):
+    weight = StringField('Weight(kg):', [validators.DataRequired()])
+    height = StringField('Height(m):', [validators.DataRequired()])
 
 @app.route('/bmi', methods=['GET','POST'])
-class bmi(Form):
-    weight = StringField('Weight:', [validators.DataRequired()])
-    height = StringField('Height:', [validators.DataRequired()])
-
-def calculate():
+def bmi1():
     #follow according to user profile
     #adduser = request.form[]
     #user1
-    form = bmi(request.form)
-    if request.method == 'POST' and form.validate():
-        weight = float(form.weight.data)
+    #key = session['key']
+    #user = ref1.child(key)
+    form = bmiform(request.form)
+    if request.method =='POST' and form.validate():
         height = float(form.height.data)
-        Bmi = bmi1.Bmi(height, weight)
-        bmi_db = User.child('BMI')
-        bmi_db.update({
-            "height":float(Bmi.get_height()),
-            "weight":float(Bmi.get_weight()),
-            "BMI":str(Bmi.get_bmi())
-        })
+        weight = float(form.weight.data)
+        Bmi1 = Bmi(height, weight)
+        bmi_db = ref1.child('BMI')
+        #height=float(Bmi.get_height())
+        #weight=float(Bmi.get_weight())
+        bmi_db.push({
+            "BMI":float(Bmi1.get_bmi()),
+            "Date":str(now)
+            })
         flash('You have successfully post your BMI','success')
-        return redirect(url_for('bmi'))
-    return render_template('bmiteseting.html')
+        return redirect('/bmiresults')
+
+    return render_template('bmiteseting.html', form=form)
+
+@app.route('/bmiresults')
+def bmiresults():
+    bmirels = []
+    bmidate = []
+    ref3 = ref1.child('BMI').get()
+    #bmirels = []  # create a list to store all the objects
+    for ref5 in ref3:
+        ref4 = ref3[ref5]
+        refval = ref4['BMI']
+        # retrieve date here
+        refdate = ref4['Date']
+        refval2 = float("{0:.2f}".format(refval))
+        bmirels.append(refval2)
+        bmidate.append(refdate)
+    bmilast = bmirels[-1]
+    graph = pygal.Line(style=LightSolarizedStyle)
+    graph.title = 'BMI history'
+    graph.x_labels = bmidate
+    #graph.y_labels = ['11','13','15','17','19','21','23','25','27','29','31']
+    graph.add('BMI', bmirels)
+    graph_data = graph.render_data_uri()
+    return render_template('bmiresults.html' , bmilist2=bmirels, bmilast=bmilast, graph_data= graph_data)
+
+root = db.reference()
+#targets_ref = root.child('targets')
+
 @app.route('/viewtarget')
 def viewtarget():
     #print(root.get())
+    targets = root.child('targets').get()
     list1 = []  # create a list to store all the objects
-    targets = targets_ref.get()
-    for target3 in targets:
-        targetpost = targets[target3]
-        target2 = Target1(targetpost['goals'], targetpost['category'], targetpost['status'], targetpost['number'])
-        target2.set_target3(target3)
+    for target6 in targets:
+        targetpost = targets[target6]
+        target2 = Target(targetpost['goals'], targetpost['category'], targetpost['status'], targetpost['number'])
+        target2.set_target3(target6)
         target2.get_target3()
         list1.append(target2)
         #return render_template('view_target.html', targets=list1)
+
     return render_template('view_target.html', targets=list1)
 
 class RequiredIf(object):
@@ -253,14 +294,13 @@ def new():
         category = targetform.category.data
         status = targetform.status.data
         number = targetform.number.data
-        tar = Target1(goals, category, status, number)
+        tar = Target(goals, category, status, number)
         tar_db = root.child('targets')
         tar_db.push({
             'goals': tar.get_goals(),
             'category': tar.get_category(),
             'status': tar.get_status(),
             'number': tar.get_number(),
-  #          'start_date': tar.get_start_date(),
         })
         flash('Target added.', 'success')
         return redirect(url_for('viewtarget'))
@@ -275,22 +315,20 @@ def update_target(id):
         category = targetform.category.data
         status = targetform.status.data
         number = targetform.number.data
-        tar = Target1(goals, category, status, number)
+        tar = Target(goals, category, status, number)
         tar_db = root.child('targets/' + id)
         tar_db.set({
             'goals': tar.get_goals(),
             'category': tar.get_category(),
             'status': tar.get_status(),
             'number': tar.get_number(),
-        #          'start_date': tar.get_start_date(),
         })
         flash('Goals Updated Successfully.', 'success')
         return redirect(url_for('viewtarget'))
     else:
         url = 'targets/' + id
         target_s = root.child(url).get()
-
-        target2 = Target1(target_s['goals'], target_s['category'], target_s['status'], target_s['number'])
+        target2 = Target(target_s['goals'], target_s['category'], target_s['status'], target_s['number'])
         target2.set_target3(id)
         targetform.goals.data = target2.get_goals()
         targetform.category.data = target2.get_category()
@@ -309,18 +347,37 @@ def delete_targets(id):
 
     return redirect(url_for('viewtarget'))
 
-
-@app.route('/foodtracker')
+@app.route('/foodtracker' , methods=['GET','POST'])
 def food():
-    calories = {'Boiled Eggs': 155, 'Fried Eggs': 196, 'Whole Chicken': 1070, 'French Fries': 312,'Celery': 16, 'Broccoli': 34, 'Cabbage': 25, 'Potato': 77, 'Apple': 52, 'Cucumber': 16,
-                'Onion':40,'White Rice(132g, a cup)': 199, 'Chicken': 239, 'Beef': 250}
+    ref = db.reference('')
+    for i in ref:
+        count += 0
+        foodtracker_db = root.child('report/end/foods/'+ count + '/nutrients/0/value')
+        foodtracker_db = root.child('report/end/foods/0/nutrients/0/value')
+    cal1 = ref.order_by_child('foodtracker/report/end/foods')
+    cal2 = ref.order_by_child('foodtracker/report/end/foods/0/nutrients/0/value').get()
+    #calories = {'Boiled Eggs': 155, 'Fried Eggs': 196, 'Whole Chicken': 1070, 'French Fries': 312,'Celery': 16, 'Broccoli': 34, 'Cabbage': 25, 'Potato': 77, 'Apple': 52, 'Cucumber': 16,
+     #           'Onion':40,'White Rice(132g, a cup)': 199, 'Chicken': 239, 'Beef': 250}
+    list2 = []
+    list3 = []
+    #foas = ref.get()
+    for cals in cal1:
+        list2.append(cals)
+    for cals2 in cal2:
+        list3.append(cals2)
+        return render_template('foodtracker.html', calories=list2, cal2=list3)
 
-    count = 0
-    for i in calories:
-        count += 1
+   #     else:
+             #display results
+   #         return render_template('foodtracker.html', search1=list1, search2=list2)
+    #count = 0
+    #for i in calories:
+     #   count += 1
     #if click == True:
-        sum(calories.values())
-    return render_template('foodtracker.html', calories=calories)
+     #   sum(calories.values())
+    #return render_template('foodtracker.html', calories=list1, cal2=list2)
+
+__all__ = ['Target' , 'Bmi' , 'Food']
 
 
 if __name__ == '__main__':

@@ -1,26 +1,37 @@
-<html>
-<link rel="stylesheet" href="./static/css/trackercss.css">
 {% extends 'layout.html' %}
 
 {% block body %}
 {% from "includes/_formhelper.html" import render_field %}
-    <body>
-    <style>
+        <style>
         body{
             padding-top: 100px;
             padding-bottom: 100px;
         }
         table{
+            table-layout: fixed;
+            border-collapse: collapse;
             width:100%;
             text-align: center;
-            word-break: break-all;
             margin: auto;
+       }
+
+        tr:nth-child(even){
+            background-color: #f2f2f2;
+        }
+        tr:hover{
+            background-color: #ddd;
         }
         h1{
             color:black;
         }
+        #space{
+            padding-bottom: 50px;
+        }
     </style>
-    <h1>Targets</h1>
+    <body>
+    <h1 style="text-align:center">Targets</h1>
+    <br/>
+    <h2>In this page, you can view your current health target(s)</h2>
     <br/>
     <h3><a href="/newtarget">Create New Target</a></h3>
     <table border="1">
@@ -47,24 +58,26 @@
                 {% endif %}
                 {% if target_for.get_status() == "active" %}
                     <td>Active</td>
-                {% elif target_for.get_status() == "inactive" %}
+                {% elif target_for.get_status() == "onhold" %}
                     <td>Inactive</td>
-                {% elif target_for.get_status() == "ended" %}
+                {% elif target_for.get_status() == "notstarted" %}
                     <td>Ended</td>
-                {% elif target_for.get_status() == "cancelled" %}
+                {% elif target_for.get_status() == "completed" %}
                     <td>Cancelled</td>
                 {% endif %}
+                <!-- <td><input type="date" min="2018-01-01"></td>
+                <td><input type="date"></td> -->
 {#            "#}
                 <td>{{ target_for.get_number() }}</td>
                 <td><a href="/update/{{target_for.get_target3()}}" class="btn btn-warning">Update</a></td>
-                <td><form action="" method="post">
-                    <input type="submit" value="Delete" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this target?');"></form>
+                <td><form action="{{url_for('delete_targets', id=target_for.get_target3())}}" method="post">
+                    <input type="submit" value="Delete" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this target?');">
+                </form>
                 </td>
             </tr>
         {% endfor %}
-
         </tbody>
     </table>
+        <div id="space"></div>
     </body>
 {% endblock %}
-</html>

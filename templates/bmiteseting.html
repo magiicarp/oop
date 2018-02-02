@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+{% block body %}
+    {% from "includes/_formhelper.html" import render_field %}
+         <style>
+         body{
+             padding-top: 100px;
+         }
+         form{
+             margin:0 auto;
+         }
+         #space{
+             padding-bottom: 100px;
+         }
+        </style>
+    <section id="bmi" class="bmi-form">
+        <div class="container" align="center">
+            <div class="row">
+                <div class="col-sm-12">
+                <h2 style="text-align: center">BMI</h2>
+                <p style="text-align: center">Are you at a healthy range? Use our BMI calculator to check now!</p>
+                <div>
+                    <div class="container-mtd">
+                        <form name ="bmiform" method="POST" role="form" class="pure-form">
+                            <div name="height" class="form-group">
+                                {{ render_field(form.height, class_="form-control") }} <!-- m -->
+                            </div>
+                            <div name="weight" class="form-group">
+                                {{ render_field(form.weight, class_="form-control") }} <!-- kg -->
+                            </div>
+                            <button type="submit" class="btn btn-primary">Count BMI</button>
+                        </form>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    <div id="space"></div>
+    </section>
+    <script>
+
+    </script>
+    <!-- if bmi not good can use our food tracker to tracker your calories, or fitness -->
+{% endblock %}
