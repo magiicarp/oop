@@ -21,15 +21,12 @@ targets_ref = root.child('targets')
 def home():
     return render_template('index.html')
 
-@app.route('/healthyeating')
-def healthyeating():
-    return render_template('eating.html')
-
 
 class Plannerform(Form):
-    age = SelectField('What is your age group?', choices = [('', 'Select'), ('TEENAGER', 'Teenager (13-19 Years)'), ('ADULT', 'Adult (20-49 Years)'), ('ELDERLY', 'Elderly (above 50)')],default='')
-    type = SelectField('What type of exercise would you like to do?', choices = [('', 'Select'), ('AEROBICS', 'Aerobics'), ('STRENGTH', 'Strength'), ('FLEXIBILITY', 'Flexibility')], default ='')
-    time = SelectField('Choose the duration of exercise', choices = [('', 'Select'), ('30min', '30 Min'), ('60min', '60 Min'), ('90min', '90 Min')], default='')
+    age = SelectField('What is your age group?',[validators.DataRequired()], choices = [('', 'Select'), ('TEENAGER/ADULT', 'Teenager/Adult (Below 50)'), ('ELDERLY', 'Elderly (above 50)')],default='')
+    type = SelectField('What type of exercise would you like to do?',[validators.DataRequired()], choices = [('', 'Select'), ('AEROBICS', 'Aerobics'), ('STRENGTH', 'Strength'), ('FLEXIBILITY', 'Flexibility')], default ='')
+    time = SelectField('Choose the duration of exercise',[validators.DataRequired()], choices = [('', 'Select'), ('15min', '15 Min'), ('30min', '30 Min'), ('45min', '45 Min')], default='')
+
 
 @app.route('/planner', methods=['GET','POST'])
 def plannerform():
@@ -41,80 +38,56 @@ def plannerform():
 
         routine  = ''
 
-        if age == 'TEENAGER':
+        if age == 'TEENAGER/ADULT':
             if type == 'AEROBICS':
-                if time == '30min' :
+                if time == '15min' :
                     routine = 'routine_1'
-                elif time == '60min':
+                elif time == '30min':
                     routine = 'routine_2'
-                elif time == '90min':
+                elif time == '45min':
                     routine = 'routine_3'
 
             elif type == 'STRENGTH':
-                if time == '30min' :
+                if time == '15min' :
                     routine = 'routine_4'
-                elif time == '60min':
+                elif time == '30min':
                     routine = 'routine_5'
-                elif time == '90min':
+                elif time == '45min':
                     routine = 'routine_6'
 
             elif type == 'FLEXIBILITY':
-                if time == '30min' :
+                if time == '15min' :
                     routine = 'routine_7'
-                elif time == '60min':
+                elif time == '30min':
                     routine = 'routine_8'
-                elif time == '90min':
+                elif time == '45min':
                     routine = 'routine_9'
-
-        elif age == 'ADULT':
-            if type == 'AEROBICS':
-                if time == '30min':
-                    routine = 'routine_10'
-                elif time == '60min':
-                    routine = 'routine_11'
-                elif time == '90min':
-                    routine = 'routine_12'
-
-            elif type == 'STRENGTH':
-                if time == '30min':
-                    routine = 'routine_13'
-                elif time == '60min':
-                    routine = 'routine_14'
-                elif time == '90min':
-                    routine = 'routine_15'
-
-            elif type == 'FLEXIBILITY':
-                if time == '30min':
-                    routine = 'routine_16'
-                elif time == '60min':
-                    routine = 'routine_17'
-                elif time == '90min':
-                    routine = 'routine_18'
 
         elif age == 'ELDERLY':
             if type == 'AEROBICS':
-                if time == '30min':
-                    routine = 'routine_19'
-                elif time == '60min':
-                    routine = 'routine_20'
-                elif time == '90min':
-                    routine = 'routine_21'
+                if time == '15min':
+                    routine = 'routine_10'
+                elif time == '30min':
+                    routine = 'routine_11'
+                elif time == '45min':
+                    routine = 'routine_12'
 
             elif type == 'STRENGTH':
-                if time == '30min':
-                    routine = 'routine_22'
-                elif time == '60min':
-                    routine = 'routine_23'
-                elif time == '90min':
-                    routine = 'routine_24'
+                if time == '15min':
+                    routine = 'routine_13'
+                elif time == '30min':
+                    routine = 'routine_14'
+                elif time == '45min':
+                    routine = 'routine_15'
 
             elif type == 'FLEXIBILITY':
-                if time == '30min':
-                    routine = 'routine_25'
-                elif time == '60min':
-                    routine = 'routine_26'
-                elif time == '90min':
-                    routine = 'routine_27'
+                if time == '15min':
+                    routine = 'routine_16'
+                elif time == '30min':
+                    routine = 'routine_17'
+                elif time == '45min':
+                    routine = 'routine_18'
+
 
         return redirect(url_for(routine))
 
@@ -128,6 +101,70 @@ def routine_1():
 @app.route('/routine_2')
 def routine_2():
     return render_template('routine_2.html')
+
+@app.route('/routine_3')
+def routine_3():
+    return render_template('routine_3.html')
+
+@app.route('/routine_4')
+def routine_4():
+    return render_template('routine_4.html')
+
+@app.route('/routine_5')
+def routine_5():
+    return render_template('routine_5.html')
+
+@app.route('/routine_6')
+def routine_6():
+    return render_template('routine_6.html')
+
+@app.route('/routine_7')
+def routine_7():
+    return render_template('routine_7.html')
+
+@app.route('/routine_8')
+def routine_8():
+    return render_template('routine_8.html')
+
+@app.route('/routine_9')
+def routine_9():
+    return render_template('routine_9.html')
+
+@app.route('/routine_10')
+def routine_10():
+    return render_template('routine_10.html')
+
+@app.route('/routine_11')
+def routine_11():
+    return render_template('routine_11.html')
+
+@app.route('/routine_12')
+def routine_12():
+    return render_template('routine_12.html')
+
+@app.route('/routine_13')
+def routine_13():
+    return render_template('routine_13.html')
+
+@app.route('/routine_14')
+def routine_14():
+    return render_template('routine_14.html')
+
+@app.route('/routine_15')
+def routine_15():
+    return render_template('routine_15.html')
+
+@app.route('/routine_16')
+def routine_16():
+    return render_template('routine_16.html')
+
+@app.route('/routine_17')
+def routine_17():
+    return render_template('routine_17.html')
+
+@app.route('/routine_18')
+def routine_18():
+    return render_template('routine_18.html')
 
 
 @app.route('/events')
@@ -146,9 +183,6 @@ def login():
 def tracker():
     return render_template('tracker.html')
 
-@app.route('/teenagerplan')
-def teenagerplan():
-    return render_template('teenagerplan.html')
 
 
 @app.route('/bmi', methods=['GET','POST'])
