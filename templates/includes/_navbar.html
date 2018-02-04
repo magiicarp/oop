@@ -39,7 +39,7 @@
                                                 <li><a href="/events" style="color: #9d9d9d">EVENTS</a></li>
                                                 <li><a href="/contact" style="color: #9d9d9d">CONTACT</a></li>
                                                 {% if session.logged_in %}
-                                                <li><a href="/profile" style="color: #9d9d9d">PROFILE</a></li>
+                                                <li><a href="/{{ session['username'] }}" style="color: #9d9d9d">PROFILE</a></li>
                                                 <li><a href="/logout" style="color: #9d9d9d">LOGOUT</a></li>
                                                 {% else %}
                                                 <li><a href="/login" style="color: #9d9d9d">LOGIN</a></li>
