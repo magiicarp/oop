@@ -1,10 +1,11 @@
-from flask import Flask, render_template, request ,flash, redirect, url_for
-from wtforms import Form, StringField, TextAreaField, RadioField, SelectField, SubmitField, validators
+from flask import Flask, render_template, request ,flash, redirect, url_for, session
+from wtforms import Form, StringField, PasswordField, TextAreaField, RadioField, SelectField, SubmitField, validators
+from wtforms.fields.html5 import DateField
 import firebase_admin
 from firebase_admin import credentials, db
 from targets2 import Target
 from bmi2 import Bmi
-from User import User
+from User import *
 from datetime import datetime
 from RegisterProgram import Registerform
 import pygal
@@ -18,7 +19,7 @@ default_app = firebase_admin.initialize_app(cred, {
     'databaseURL': 'https://oopp-267d4.firebaseio.com/'
 })
 
-
+user_ref = db.reference('userbase')
 root = db.reference()
 targets_ref = root.child('targets')
 ref1 = db.reference()
@@ -226,9 +227,6 @@ def events():
 def contact():
     return render_template('contact.html')
 
-@app.route('/login')
-def login():
-    return render_template('login.html')
 
 @app.route('/tracker')
 def tracker():
@@ -421,6 +419,118 @@ def food():
 __all__ = ['Target' , 'Bmi' , 'Food']
 
 
+#profile
+@app.route('/<username>')
+def profile(username):
+    return render_template('profile.html')
+
+#class ProfileForm(Form):
+    #about = TextAreaField('About')
+
+@app.route('/<username>/edit')
+def editprofile(username):
+    if session['logged_in'] == True:
+        return 'test'
+        #form = ProfileForm(request.form)
+        #if request.method == 'POST' and form.validate():
+        #    about = form.about.data
+        #user_db = root.child('userbase')
+        #user_db.push({
+        #    'about': about
+        #})
+    else:
+        flash('You need to be logged in to edit your profile.')
+
+
+
+#signup
+class SignUpForm(Form):
+    name = StringField('Name', [validators.Length(min=1, max =50), validators.DataRequired()])
+    username = StringField('Username',[validators.Length(min=4,max=25),validators.DataRequired()])
+    email = StringField('Email', [validators.Length(min=6,max=50),validators.DataRequired()])
+    birthday = DateField('Birthday', format='%Y-%m-%d')
+    #gender = SelectField('Gender',choices=['Female', 'Male', 'Other'])
+    password = PasswordField('Password', [validators.DataRequired(),validators.EqualTo('confirm',message='Passwords do not match')
+])
+    confirm = PasswordField('Confirm Password')
+
+@app.route('/signup',methods=['GET', 'POST'])
+def signup():
+    form = SignUpForm(request.form)
+    if request.method == 'POST' and form.validate():
+        name = form.name.data.title()
+        username = form.username.data
+        email = form.email.data
+        birthday = str(form.birthday.data)
+        #gender = form.gender.data
+        password = str(form.password.data)
+        userbase = user_ref.get()
+        user_db = root.child('userbase')
+        user = User(name, username, email,birthday, password)
+        user_db.push({
+            'name': user.get_name(),
+            'username': user.get_username(),
+            'email': user.get_email(),
+            'birthday': user.get_birthday(),
+            #'gender': user.get_gender(),
+            'password': user.get_password()
+        })
+        flash('You have registered successfully', 'success')
+        return redirect(url_for('login'))
+    return render_template('signup.html', form=form)
+
+#login
+class LoginForm(Form):
+    username = StringField('Username', [validators.DataRequired()])
+    password = PasswordField('Password', [validators.DataRequired()])
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+     form = LoginForm(request.form)
+     if request.method == 'POST' and form.validate() == True:
+         username = form.username.data
+         password = form.password.data
+         userbase = user_ref.get()
+         for user in userbase.items():
+             if user[1]['username'] == username and user[1]['password'] == password:
+                 session['user_data'] = user[1]
+                 session['logged_in'] = True
+                 session['username'] = username
+                 return redirect(url_for('home'))
+             elif form.validate() == False:
+                 flash('Please enter your credentials', 'danger')
+                 return render_template('login.html', form=form)
+             else:
+                 flash('Wrong credentials. Please try again', 'danger')
+                 return render_template('login.html', form=form)
+     return render_template('login.html', form=form)
+
+
+#logout
+@app.route('/logout')
+def logout():
+    session.pop('logged_in', None)
+    return redirect(url_for('home'))
+
+#requiredif
+class RequiredIf(object):
+
+    def __init__(self, *args, **kwargs):
+        self.conditions = kwargs
+
+    def __call__(self, form, field):
+        for name, data in self.conditions.items():
+            if name not in form._fields:
+                validators.Optional()(field)
+            else:
+                condition_field = form._fields.get(name)
+                if condition_field.data == data:
+                    validators.DataRequired().__call__(form, field)
+                else:
+                    validators.Optional().__call__(form, field)
+
+
+
 if __name__ == '__main__':
     app.secret_key = 'secret12'
-    app.run(port=80) 
+    app.run(port=80,debug= True)
