@@ -20,8 +20,6 @@ default_app = firebase_admin.initialize_app(cred, {
 })
 
 user_ref = db.reference('userbase')
-ref1 = db.reference('userbase')
-ref2 = db.reference('BMI')
 now = datetime.now()
 
 program = db.reference('program')
