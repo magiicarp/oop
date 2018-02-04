@@ -233,6 +233,7 @@ class bmiform(Form):
 
 @app.route('/bmi', methods=['GET','POST'])
 def bmi1():
+  if session['logged in'] == True:
     userkey = session['key']
     root = user_ref.child(userkey)
     form = bmiform(request.form)
@@ -251,6 +252,8 @@ def bmi1():
         return redirect('/bmiresults')
 
     return render_template('bmiteseting.html', form=form)
+  else:
+      return render_template('bmiteseting.html', form=form)
 #@login_manager.unauthorized_handler
 #def unauthorized_handler():
 #    return render_template('<html>Please <a href="/login">Login</a>to access.</html>')
@@ -393,6 +396,7 @@ def delete_targets(id):
 
 @app.route('/foodtracker' , methods=['GET','POST'])
 def food():
+    count = 0
     ref = db.reference('')
     for i in ref:
         count += 0
@@ -422,39 +426,6 @@ def food():
     #return render_template('foodtracker.html', calories=list1, cal2=list2)
 
 __all__ = ['Target' , 'Bmi' , 'Food']
-
-@app.route('/foodtracker' , methods=['GET','POST'])
-def food():
-    ref = db.reference('')
-    for i in ref:
-        count += 0
-        foodtracker_db = root.child('report/end/foods/'+ count + '/nutrients/0/value')
-        foodtracker_db = root.child('report/end/foods/0/nutrients/0/value')
-    cal1 = ref.order_by_child('foodtracker/report/end/foods')
-    cal2 = ref.order_by_child('foodtracker/report/end/foods/0/nutrients/0/value').get()
-    #calories = {'Boiled Eggs': 155, 'Fried Eggs': 196, 'Whole Chicken': 1070, 'French Fries': 312,'Celery': 16, 'Broccoli': 34, 'Cabbage': 25, 'Potato': 77, 'Apple': 52, 'Cucumber': 16,
-     #           'Onion':40,'White Rice(132g, a cup)': 199, 'Chicken': 239, 'Beef': 250}
-    list2 = []
-    list3 = []
-    #foas = ref.get()
-    for cals in cal1:
-        list2.append(cals)
-    for cals2 in cal2:
-        list3.append(cals2)
-        return render_template('foodtracker.html', calories=list2, cal2=list3)
-
-   #     else:
-             #display results
-   #         return render_template('foodtracker.html', search1=list1, search2=list2)
-    #count = 0
-    #for i in calories:
-     #   count += 1
-    #if click == True:
-     #   sum(calories.values())
-    #return render_template('foodtracker.html', calories=list1, cal2=list2)
-
-__all__ = ['Target' , 'Bmi' , 'Food']
-
 
 #profile
 @app.route('/<username>')
