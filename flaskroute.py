@@ -20,8 +20,6 @@ default_app = firebase_admin.initialize_app(cred, {
 })
 
 user_ref = db.reference('userbase')
-ref1 = db.reference('userbase')
-ref2 = db.reference('BMI')
 now = datetime.now()
 
 program = db.reference('program')
@@ -229,24 +227,24 @@ def contact():
 def tracker():
     return render_template('tracker.html')
 
-
 class bmiform(Form):
     weight = StringField('Weight(kg):', [validators.DataRequired()])
     height = StringField('Height(m):', [validators.DataRequired()])
 
 @app.route('/bmi', methods=['GET','POST'])
 def bmi1():
-    userkey = session['user_data']
-    root = ref1.child(userkey)
+  if session['logged in'] == True:
+    userkey = session['key']
+    root = user_ref.child(userkey)
     form = bmiform(request.form)
     if request.method =='POST' and form.validate():
         height = float(form.height.data)
         weight = float(form.weight.data)
         Bmi1 = Bmi(height, weight)
-        bmi_db = root.child('BMI')
+        bmi_data = root.child('BMI')
         #height=float(Bmi.get_height())
         #weight=float(Bmi.get_weight())
-        bmi_db.push({
+        bmi_data.push({
             "BMI":float(Bmi1.get_bmi()),
             "Date":str(now)
             })
@@ -254,14 +252,16 @@ def bmi1():
         return redirect('/bmiresults')
 
     return render_template('bmiteseting.html', form=form)
+  else:
+      return render_template('bmiteseting.html', form=form)
 #@login_manager.unauthorized_handler
 #def unauthorized_handler():
 #    return render_template('<html>Please <a href="/login">Login</a>to access.</html>')
 
 @app.route('/bmiresults')
 def bmiresults():
-    userkey = session['user_data']
-    root = ref1.child(userkey).get()
+    userkey = session['key']
+    root = user_ref.child(userkey)
     bmirels = []
     bmidate = []
     ref3 = root.child('BMI').get()
@@ -288,8 +288,8 @@ root = db.reference()
 
 @app.route('/viewtarget')
 def viewtarget():
-    # key = session['']
-    # user = ref1.child(key)
+    userkey = session['key']
+    root = user_ref.child(userkey)
     #print(root.get())
     targets = root.child('targets').get()
     list1 = []  # create a list to store all the objects
@@ -329,6 +329,8 @@ class Target1(Form):
 
 @app.route('/newtarget', methods=['GET','POST'])
 def new():
+    userkey = session['key']
+    root = user_ref.child(userkey)
     targetform = Target1(request.form)
     if request.method == 'POST' and targetform.validate():
         goals = targetform.goals.data
@@ -350,6 +352,8 @@ def new():
 
 @app.route('/update/<string:id>', methods=['GET','POST'])
 def update_target(id):
+    userkey = session['key']
+    root = user_ref.child(userkey)
     targetform = Target1(request.form)
     if request.method == 'POST' and targetform.validate():
         goals = targetform.goals.data
@@ -382,6 +386,8 @@ def update_target(id):
 
 @app.route('/delete_targets/<string:id>', methods=['POST'])
 def delete_targets(id):
+    userkey = session['key']
+    root = user_ref.child(userkey)
     tar_db = root.child('targets/' + id)
     tar_db.delete()
     flash('Goal Deleted Successfully.', 'success')
@@ -390,6 +396,7 @@ def delete_targets(id):
 
 @app.route('/foodtracker' , methods=['GET','POST'])
 def food():
+    count = 0
     ref = db.reference('')
     for i in ref:
         count += 0
@@ -419,7 +426,6 @@ def food():
     #return render_template('foodtracker.html', calories=list1, cal2=list2)
 
 __all__ = ['Target' , 'Bmi' , 'Food']
-
 
 #profile
 @app.route('/<username>')
