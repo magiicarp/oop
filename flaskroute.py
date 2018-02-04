@@ -14,7 +14,7 @@ from pygal.style import LightSolarizedStyle
 
 app = Flask(__name__)
 
-cred = credentials.Certificate('./cred/oopp-267d4-firebase-adminsdk-4rnbe-fb1b31a720.json')
+cred = credentials.Certificate('cred/oopp-267d4-firebase-adminsdk-4rnbe-e23e0168e7.json')
 default_app = firebase_admin.initialize_app(cred, {
     'databaseURL': 'https://oopp-267d4.firebaseio.com/'
 })
@@ -497,13 +497,11 @@ def login():
              if user[1]['username'] == username and user[1]['password'] == password:
                  session['user_data'] = user[1]
                  session['logged_in'] = True
+                 session['logged_out'] = False
                  session['username'] = username
                  return redirect(url_for('home'))
              elif form.validate() == False:
                  flash('Please enter your credentials', 'danger')
-                 return render_template('login.html', form=form)
-             else:
-                 flash('Wrong credentials. Please try again', 'danger')
                  return render_template('login.html', form=form)
      return render_template('login.html', form=form)
 
@@ -535,4 +533,4 @@ class RequiredIf(object):
 
 if __name__ == '__main__':
     app.secret_key = 'secret12'
-    app.run(port=80,debug= True)
+    app.run(port=80)

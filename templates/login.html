@@ -3,23 +3,22 @@
 {% block body %}
 
     {% from "includes/_formhelper.html" import render_field %}
-      {% if form.errors %}
-        <div class="alert alert-danger">
-            <ul>
-                {% for field_name, field_errors in form.errors|dictsort if field_errors %}
-                    {% for error in field_errors %}
-                        <li>{{ form[field_name].label }}: {{ error }}</li>
-                    {% endfor %}
-                {% endfor %}
-            </ul>
-        </div>
-    {% endif %}
     <div class="content">
-            <h2>
-                LOGIN
-            </h2>
-
-        </div>
+        <h2>LOGIN</h2>
+        {% if form.errors %}
+            <div class="content">
+                <div class="alert alert-danger">
+                    <ul>
+                        {% for field_name, field_errors in form.errors|dictsort if field_errors %}
+                            {% for error in field_errors %}
+                                <li>{{ form[field_name].label }}: {{ error }}</li>
+                            {% endfor %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+    {% endif %}
+    </div>
     <div class="content">
         <div class="container">
             <div class="row">
