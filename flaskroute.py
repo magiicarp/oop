@@ -65,7 +65,13 @@ def registerform():
             'height': registerform.get_height()
         })
 
+        flash('You have been registered for your program! Thank you!.', 'success')
+
     return render_template('registerform.html',registerform=registerprog)
+
+@app.route('/fitnessprograms')
+def fitnessprograms():
+    return render_template('fitnessprograms.html')
 
 class Plannerform(Form):
     age = SelectField('What is your age group?',[validators.DataRequired()], choices = [('', 'Select'), ('TEENAGER/ADULT', 'Teenager/Adult (Below 50)'), ('ELDERLY', 'Elderly (above 50)')],default='')
