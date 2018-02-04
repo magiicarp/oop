@@ -505,6 +505,7 @@ def login():
                  session['logged_in'] = True
                  session['logged_out'] = False
                  session['username'] = username
+                 session['key'] = user[0]
                  return redirect(url_for('home'))
              elif form.validate() == False:
                  flash('Please enter your credentials', 'danger')
