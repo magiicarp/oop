@@ -559,4 +559,4 @@ class RequiredIf(object):
 
 if __name__ == '__main__':
     app.secret_key = 'secret12'
-    app.run(port=70)
+    app.run(port=80)
