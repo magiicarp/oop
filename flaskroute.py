@@ -10,6 +10,7 @@ from datetime import datetime
 from RegisterProgram import Registerform
 import pygal
 from pygal.style import LightSolarizedStyle
+from program import Program
 
 
 app = Flask(__name__)
@@ -67,6 +68,12 @@ def registerform():
 
 @app.route('/fitnessprograms')
 def fitnessprograms():
+    prog = Program('Program 1')
+    if request.method == 'GET':
+        registerform_db = root.child('registerform')
+        registerform_db.push({
+            'program': prog.get_program(),
+        })
     return render_template('fitnessprograms.html')
 
 class Plannerform(Form):
