@@ -1,13 +1,14 @@
-<html>
+<p>
 <link rel="stylesheet" href="./static/css/trackercss.css">
 {% extends 'layout.html' %}
 
 {% block body %}
+{% include 'includes/_message.html' %}
 {% from "includes/_formhelper.html" import render_field %}
     <body>
     <style>
         body{
-            padding-top: 100px;
+            padding-top: 150px;
             padding-bottom: 100px;
             text-align: center;
         }
@@ -24,6 +25,7 @@
             color:black;
         }
     </style>
+{% if session.logged_in %}
     <h3>Your BMI is:</h3>
     <h1>{{ bmilast }}</h1>
     <br/>
@@ -64,6 +66,9 @@
 	  <div class="container" align="left">
 			<embed type="image/svg+xml" src={{graph_data|safe}} style='max-width:1000px'/>
 	  </div>
+{% else %}
+    <p>Please <a href="/login">Login</a> or <a href="/signup">Sign Up</a> to access.</p>
+{% endif %}
     <div id="space"></div>
 </body>
 {% endblock %}

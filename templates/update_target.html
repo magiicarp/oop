@@ -3,9 +3,8 @@
 {% block body %}
     {% include 'includes/_message.html' %}
     {% from "includes/_formhelper.html" import render_field %}
+    {% if session.logged_in %}
     <h1>Target</h1>
-    <script>
-    </script>
     <form method="POST">
 
         <div class="form-group">
@@ -23,6 +22,8 @@
         <div class="form-group">
             <input type="submit" value="Update" class="btn btn-info"/>
         </div>
-
+    {% else %}
+            <p>Please <a href="/login">Login</a> or <a href="/signup">Sign Up</a> to access.</p>
+    {% endif %}
     </form>
 {% endblock %}

@@ -5,7 +5,7 @@
 {% from "includes/_formhelper.html" import render_field %}
         <style>
         body{
-            padding-top: 100px;
+            padding-top: 150px;
             padding-bottom: 100px;
         }
         table{
@@ -30,6 +30,7 @@
         }
     </style>
     <body>
+{% if session.logged_in %}
     <h1 style="text-align:center">Targets</h1>
     <br/>
     <h2>In this page, you can view your current health target(s)</h2>
@@ -42,6 +43,7 @@
             <th>Category</th>
             <th>Status</th>
             <th>Number of times</th>
+            <th>Date</th>
             <th></th>
             <th></th>
         </tr>
@@ -66,10 +68,9 @@
                 {% elif target_for.get_status() == "completed" %}
                     <td>Completed</td>
                 {% endif %}
-                <!-- <td><input type="date" min="2018-01-01"></td>
-                <td><input type="date"></td> -->
 {#            "#}
                 <td>{{ target_for.get_number() }}</td>
+                <td>{{  target_for.get_date().format('%Y-%m-%d') }}</td>
                 <td><a href="/update/{{target_for.get_target3()}}" class="btn btn-warning">Update</a></td>
                 <td><form action="{{url_for('delete_targets', id=target_for.get_target3())}}" method="post">
                     <input type="submit" value="Delete" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this target?');">
@@ -79,6 +80,9 @@
         {% endfor %}
         </tbody>
     </table>
+{% else %}
+    <p>Please <a href="/login">Login</a> or <a href="/signup">Sign Up</a> to access.</p>
+{% endif %}
         <div id="space"></div>
     </body>
 {% endblock %}

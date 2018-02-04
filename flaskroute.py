@@ -21,7 +21,7 @@ default_app = firebase_admin.initialize_app(cred, {
 })
 
 user_ref = db.reference('userbase')
-now = datetime.now()
+now = datetime.now().date()
 
 program = db.reference('program')
 registerform = db.reference('registerform')
@@ -240,7 +240,6 @@ class bmiform(Form):
 
 @app.route('/bmi', methods=['GET','POST'])
 def bmi1():
-  if session['logged in'] == True:
     userkey = session['key']
     root = user_ref.child(userkey)
     form = bmiform(request.form)
@@ -249,8 +248,6 @@ def bmi1():
         weight = float(form.weight.data)
         Bmi1 = Bmi(height, weight)
         bmi_data = root.child('BMI')
-        #height=float(Bmi.get_height())
-        #weight=float(Bmi.get_weight())
         bmi_data.push({
             "BMI":float(Bmi1.get_bmi()),
             "Date":str(now)
@@ -258,9 +255,7 @@ def bmi1():
         flash('You have successfully post your BMI','success')
         return redirect('/bmiresults')
 
-    return render_template('bmiteseting.html', form=form)
-  else:
-      return render_template('bmiteseting.html', form=form)
+    return render_template('bmi.html', form=form)
 #@login_manager.unauthorized_handler
 #def unauthorized_handler():
 #    return render_template('<html>Please <a href="/login">Login</a>to access.</html>')
@@ -282,33 +277,46 @@ def bmiresults():
         bmirels.append(refval2)
         bmidate.append(refdate)
     bmilast = bmirels[-1]
-    graph = pygal.Line(style=LightSolarizedStyle)
-    graph.title = 'BMI history'
-    graph.x_labels = bmidate
-    #graph.y_labels = ['11','13','15','17','19','21','23','25','27','29','31']
-    graph.add('BMI', bmirels)
-    graph_data = graph.render_data_uri()
-    return render_template('bmiresults.html' , bmilist2=bmirels, bmilast=bmilast, graph_data= graph_data)
+    if len(bmirels) > 5:
+        bmirelt = bmirels[-5:]
+        bmidate1 = bmidate[-5:]
+        graph = pygal.Line(style=LightSolarizedStyle)
+        graph.title = 'BMI history'
+        graph.x_labels = bmidate1
+        graph.add('BMI', bmirelt)
+        graph_data = graph.render_data_uri()
+        return render_template('bmiresults.html', bmilist2=bmirelt, bmilast=bmilast, graph_data=graph_data)
+    else:
+        graph = pygal.Line(style=LightSolarizedStyle)
+        graph.title = 'BMI history'
+        graph.x_labels = bmidate
+        graph.add('BMI', bmirels)
+        graph_data = graph.render_data_uri()
+        return render_template('bmiresults.html' , bmilist2=bmirels, bmilast=bmilast, graph_data= graph_data)
 
 root = db.reference()
 #targets_ref = root.child('targets')
 
 @app.route('/viewtarget')
 def viewtarget():
-    userkey = session['key']
-    root = user_ref.child(userkey)
-    #print(root.get())
-    targets = root.child('targets').get()
-    list1 = []  # create a list to store all the objects
-    for target6 in targets:
-        targetpost = targets[target6]
-        target2 = Target(targetpost['goals'], targetpost['category'], targetpost['status'], targetpost['number'])
-        target2.set_target3(target6)
-        target2.get_target3()
-        list1.append(target2)
-        #return render_template('view_target.html', targets=list1)
+    try:
+        userkey = session['key']
+        root = user_ref.child(userkey)
+        #print(root.get())
+        targets = root.child('targets').get()
+        list1 = []  # create a list to store all the objects
+        for target6 in targets:
+            targetpost = targets[target6]
+            target2 = Target(targetpost['goals'], targetpost['category'], targetpost['status'], targetpost['number'],
+                             targetpost['date'])
+            target2.set_target3(target6)
+            target2.get_target3()
+            list1.append(target2)
+            #return render_template('view_target.html', targets=list1)
+        return render_template('view_target.html', targets=list1)
 
-    return render_template('view_target.html', targets=list1)
+    except TypeError:
+        return render_template('error.html')
 
 class RequiredIf(object):
 
@@ -344,13 +352,15 @@ def new():
         category = targetform.category.data
         status = targetform.status.data
         number = targetform.number.data
-        tar = Target(goals, category, status, number)
+        date = now
+        tar = Target(goals, category, status, number, date)
         tar_db = root.child('targets')
         tar_db.push({
             'goals': tar.get_goals(),
             'category': tar.get_category(),
             'status': tar.get_status(),
             'number': tar.get_number(),
+            'date':str(now)
         })
         flash('Target added Successfully.', 'success')
         return redirect(url_for('viewtarget'))
@@ -367,20 +377,22 @@ def update_target(id):
         category = targetform.category.data
         status = targetform.status.data
         number = targetform.number.data
-        tar = Target(goals, category, status, number)
+        date = now
+        tar = Target(goals, category, status, number, date)
         tar_db = root.child('targets/' + id)
         tar_db.set({
             'goals': tar.get_goals(),
             'category': tar.get_category(),
             'status': tar.get_status(),
             'number': tar.get_number(),
+            'date': str(now)
         })
         flash('Goal Updated Successfully.', 'success')
         return redirect(url_for('viewtarget'))
     else:
         url = 'targets/' + id
         target_s = root.child(url).get()
-        target2 = Target(target_s['goals'], target_s['category'], target_s['status'], target_s['number'])
+        target2 = Target(target_s['goals'], target_s['category'], target_s['status'], target_s['number'], target_s['date'])
         target2.set_target3(id)
         targetform.goals.data = target2.get_goals()
         targetform.category.data = target2.get_category()
@@ -547,4 +559,4 @@ class RequiredIf(object):
 
 if __name__ == '__main__':
     app.secret_key = 'secret12'
-    app.run(port=80)
+    app.run(port=70)

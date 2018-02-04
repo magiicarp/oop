@@ -6,8 +6,6 @@
     {% from "includes/_formhelper.html" import render_field %}
     <body>
     <h1>New Target</h1>
-    <script>
-    </script>
     {% if form.errors %}
         <div class="alert alert-danger">
         <ul>
@@ -21,8 +19,8 @@
     {% endif %}
     <br>
     <br>
-    <form method="POST" action="newtarget">
-
+{% if session.logged_in %}
+    <form method="POST">
        <div class="form-group">
             {{ render_field(form.goals, class_="form-control") }}
         </div>
@@ -39,6 +37,9 @@
             <input type="submit" value="Create" class="btn btn-info"/>
         </div>
     </form>
+{% else %}
+    <p>Please <a href="/login">Login</a> or <a href="/signup">Sign Up</a> to access.</p>
+{% endif %}
     </body>
 
 {% endblock %}
