@@ -9,6 +9,7 @@
         body{
             padding-top: 100px;
             padding-bottom: 100px;
+            text-align: center;
         }
         #space{
             padding-bottom: 50px;
@@ -24,16 +25,40 @@
         }
     </style>
     <h3>Your BMI is:</h3>
-    <h1 style="text-align:center">{{ bmilast }}</h1>
+    <h1>{{ bmilast }}</h1>
     <br/>
     {% if bmilast  < 18.5 %}
          <h2>BMI too low, you are at risk.</h2>
+        <p>
+            These are a few suggestion on how you can improve your BMI.
+                <br>
+            1. Check out our healthy eating page <a href="/healthyeating">Healthy Eating page</a> here to see which recipes suits your needs.
+                <br>
+            2. Check out the <a href="/planner">Exercise Planner page</a> to plan out how to improve on your BMI.
+        </p>
     {% elif  bmilast > 18.5 or bmilast < 25 %}
         <h2>You are not at risk.</h2>
+        <p>
+            Good Job! Continue maintaining your BMI.
+        </p>
     {% elif 25 < bmilast < 30 %}
         <h2>BMI is high, you are at risk.</h2>
+        <p>
+            These are a few suggestion on how you can improve your BMI.
+                <br>
+            1. Check out our healthy eating page <a href="/healthyeating">Healthy Eating page</a> here to see which recipes suits your needs.
+                <br>
+            2. Check out our <a href="/planner">Exercise Planner page</a> to plan out how to improve on your BMI.
+        </p>
     {% else %}
         <h2>BMI too high, you are at a high risk.</h2>
+        <p>
+            These are a few suggestion on how you can improve your BMI.
+                <br>
+            1. Check out our healthy eating page <a href="/healthyeating">Healthy Eating page</a> here to see which recipes suits your needs.
+                <br>
+            2. Check out the <a href="/planner">Exercise Planner page</a> to plan out how to improve on your BMI.
+        </p>
     {% endif %}
     </br>
 	  <div class="container" align="left">

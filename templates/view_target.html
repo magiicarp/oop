@@ -1,6 +1,7 @@
 {% extends 'layout.html' %}
 
 {% block body %}
+{% include 'includes/_message.html' %}
 {% from "includes/_formhelper.html" import render_field %}
         <style>
         body{
@@ -59,11 +60,11 @@
                 {% if target_for.get_status() == "active" %}
                     <td>Active</td>
                 {% elif target_for.get_status() == "onhold" %}
-                    <td>Inactive</td>
+                    <td>On Hold</td>
                 {% elif target_for.get_status() == "notstarted" %}
-                    <td>Ended</td>
+                    <td>Not Started</td>
                 {% elif target_for.get_status() == "completed" %}
-                    <td>Cancelled</td>
+                    <td>Completed</td>
                 {% endif %}
                 <!-- <td><input type="date" min="2018-01-01"></td>
                 <td><input type="date"></td> -->
