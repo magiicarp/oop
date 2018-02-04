@@ -70,7 +70,7 @@ def registerform():
 def fitnessprograms():
     prog = Program('Program 1')
     if request.method == 'GET':
-        registerform_db = root.child('registerprogram')
+        registerform_db = root.child('registerform')
         registerform_db.push({
             'program': prog.get_program(),
         })
