@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request ,flash, redirect, url_for, session
-from wtforms import Form, StringField, PasswordField, TextAreaField, RadioField, SelectField, SubmitField, validators
+from wtforms import Form, StringField, PasswordField, TextAreaField, RadioField, SelectField, SubmitField, validators, DateField
 from wtforms.fields.html5 import DateField
 import firebase_admin
 from firebase_admin import credentials, db
@@ -20,11 +20,8 @@ default_app = firebase_admin.initialize_app(cred, {
 })
 
 user_ref = db.reference('userbase')
-root = db.reference()
-targets_ref = root.child('targets')
-ref1 = db.reference()
+ref1 = db.reference('userbase')
 ref2 = db.reference('BMI')
-
 now = datetime.now()
 
 program = db.reference('program')
@@ -239,17 +236,14 @@ class bmiform(Form):
 
 @app.route('/bmi', methods=['GET','POST'])
 def bmi1():
-    #follow according to user profile
-    #adduser = request.form[]
-    #user1
-    #key = session['key']
-    #user = ref1.child(key)
+    userkey = session['user_data']
+    root = ref1.child(userkey)
     form = bmiform(request.form)
     if request.method =='POST' and form.validate():
         height = float(form.height.data)
         weight = float(form.weight.data)
         Bmi1 = Bmi(height, weight)
-        bmi_db = ref1.child('BMI')
+        bmi_db = root.child('BMI')
         #height=float(Bmi.get_height())
         #weight=float(Bmi.get_weight())
         bmi_db.push({
@@ -260,12 +254,17 @@ def bmi1():
         return redirect('/bmiresults')
 
     return render_template('bmiteseting.html', form=form)
+#@login_manager.unauthorized_handler
+#def unauthorized_handler():
+#    return render_template('<html>Please <a href="/login">Login</a>to access.</html>')
 
 @app.route('/bmiresults')
 def bmiresults():
+    userkey = session['user_data']
+    root = ref1.child(userkey).get()
     bmirels = []
     bmidate = []
-    ref3 = ref1.child('BMI').get()
+    ref3 = root.child('BMI').get()
     #bmirels = []  # create a list to store all the objects
     for ref5 in ref3:
         ref4 = ref3[ref5]
@@ -289,6 +288,8 @@ root = db.reference()
 
 @app.route('/viewtarget')
 def viewtarget():
+    # key = session['']
+    # user = ref1.child(key)
     #print(root.get())
     targets = root.child('targets').get()
     list1 = []  # create a list to store all the objects
@@ -318,6 +319,7 @@ class RequiredIf(object):
                 else:
                     validators.Optional().__call__(form, field)
 
+
 class Target1(Form):
     goals = StringField('Goals', [validators.Length(min=1, max=150), validators.DataRequired()])
     category = RadioField('Type Of Goals', choices=[('physical', 'Physical'), ('diet', 'Diet'), ('habits', 'Habits')])
@@ -341,7 +343,7 @@ def new():
             'status': tar.get_status(),
             'number': tar.get_number(),
         })
-        flash('Target added.', 'success')
+        flash('Target added Successfully.', 'success')
         return redirect(url_for('viewtarget'))
 
     return render_template('create_target.html', form=targetform)
@@ -362,7 +364,7 @@ def update_target(id):
             'status': tar.get_status(),
             'number': tar.get_number(),
         })
-        flash('Goals Updated Successfully.', 'success')
+        flash('Goal Updated Successfully.', 'success')
         return redirect(url_for('viewtarget'))
     else:
         url = 'targets/' + id
@@ -382,7 +384,7 @@ def update_target(id):
 def delete_targets(id):
     tar_db = root.child('targets/' + id)
     tar_db.delete()
-    flash('Deleted', 'success')
+    flash('Goal Deleted Successfully.', 'success')
 
     return redirect(url_for('viewtarget'))
 
