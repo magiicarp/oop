@@ -430,7 +430,7 @@ def profile(username):
 @app.route('/<username>/edit')
 def editprofile(username):
     if session['logged_in'] == True:
-        return 'test'
+        return render_template('editprofile.html')
         #form = ProfileForm(request.form)
         #if request.method == 'POST' and form.validate():
         #    about = form.about.data
