@@ -1,11 +1,12 @@
 {% extends 'layout.html' %}
 
 {% block body %}
+    {% include 'includes/_message.html' %}
     {% from "includes/_formhelper.html" import render_field %}
     <h1>Target</h1>
     <script>
     </script>
-    <form method="POST" action="newtarget">
+    <form method="POST">
 
         <div class="form-group">
             {{ render_field(form.goals, class_="form-control") }}
