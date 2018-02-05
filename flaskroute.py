@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request ,flash, redirect, url_for, session
-from wtforms import Form, StringField, PasswordField, TextAreaField, RadioField, SelectField, SubmitField, validators, DateField
+from wtforms import Form, StringField, PasswordField, TextAreaField, RadioField, SelectField, SubmitField, validators, DateField, FloatField
 from wtforms.fields.html5 import DateField
 import firebase_admin
 from firebase_admin import credentials, db
@@ -33,12 +33,12 @@ def home():
 
 class RegisterForm(Form):
     name = StringField('Please enter your full name', [validators.Length(min=1, max=150), validators.DataRequired()])
-    gender = SelectField('What is your Gender?', choices = [('', 'Select'), ('MALE', 'Male'), ('FEMALE', 'Female')],default='')
+    gender = SelectField('What is your Gender?',[validators.DataRequired()], choices = [('', 'Select'), ('MALE', 'Male'), ('FEMALE', 'Female')],default='')
     email = StringField('Email', [validators.Length(min=1, max=150), validators.DataRequired()])
-    contact = StringField('Contact Number', [validators.Length(min=8, max=10), validators.DataRequired()])
-    weight = StringField('Weight (KG)', [validators.Length(min=1, max=150), validators.DataRequired()])
-    height = StringField('Height (M)', [validators.Length(min=1, max=150), validators.DataRequired()])
-    program = SelectField('Which Program are you registering for?', choices = [('', 'Select'), ('TAIJI', 'Complimentary Taiji & QiGong Classes'), ('MARINARUN', 'Marina Run 2018'), ('RUNFORLIGHT', 'Run For Light')],default='')
+    contact = StringField('Contact Number', [validators.Length(min=8, max=8), validators.DataRequired()])
+    weight = FloatField('Weight (KG)', [validators.DataRequired()])
+    height = FloatField('Height (CM)', [validators.DataRequired()])
+    program = SelectField('Which Program are you registering for?',[validators.DataRequired()], choices = [('', 'Select'), ('TAIJI', 'Complimentary Taiji & QiGong Classes'), ('MARINARUN', 'Marina Run 2018'), ('RUNFORLIGHT', 'Run For Light')],default='')
 
 @app.route('/registerprogram', methods=['GET','POST'])
 def registerform():
@@ -65,7 +65,7 @@ def registerform():
             'program': registerform.get_program()
         })
 
-        flash('You have been registered for your program! Thank you!.', 'success')
+        flash('You have been registered for the program! Thank you!.', 'success')
 
     return render_template('registerform.html',registerform=registerprog)
 
