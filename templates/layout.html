@@ -36,7 +36,11 @@
 {% block topscript %}{% endblock %}
 
 {% include 'includes/_navbar.html' %}
-
+<div class="container">
+    <div class="row">
+        {% include 'includes/_message.html' %}
+    </div>
+</div>
 
 {% block body %}{% endblock %}
 

@@ -1,11 +1,12 @@
 class Registerform:
-    def __init__(self, name, gender, email, contact, weight, height):
+    def __init__(self, name, gender, email, contact, weight, height, program):
         self.__name = name
         self.__gender = gender
         self.__email = email
         self.__contact = contact
         self.__weight = weight
         self.__height = height
+        self.__program = program
 
     def get_name(self):
         return self.__name
@@ -25,6 +26,10 @@ class Registerform:
     def get_height(self):
         return self.__height
 
+    def get_program(self):
+        return self.__program
+
+
 
     def set_name(self, name):
         self.__name = name
@@ -43,4 +48,7 @@ class Registerform:
 
     def set_height(self, height):
         self.__height = height
+
+    def set_program(self, program):
+        self.__program = program
 
