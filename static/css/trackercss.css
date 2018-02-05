@@ -1,7 +1,7 @@
-	.bmi{
-		display: inline-block;
+	body{
+		padding-top: 130px;
 	}
-	.foodintake{
+	.bmi{
 		display: inline-block;
 	}
 	.targetsettings{
@@ -43,10 +43,6 @@
 		background-color:#FFB685;
 	}
 
-	#foodintake1{
-		background-color:#FF9C5B;
-	}
-
 	#targetset{
 		background-color:#FFB685;
 	}
@@ -55,8 +51,9 @@
         text-align: center;
         font-size: 120%;
         marign-bottom: 95px;
+    	display: block;
     }
-    .content h1{
+    h1{
         color:black;
     }
     .target{
