@@ -3,7 +3,8 @@
     {% from "includes/_formhelper.html" import render_field %}
          <style>
          body{
-             padding-top: 100px;
+             padding-top: 150px;
+             text-align: center;
          }
          form{
              margin:0 auto;
@@ -13,11 +14,12 @@
          }
         </style>
     <section id="bmi" class="bmi-form">
+        {% if session.logged_in %}
         <div class="container" align="center">
             <div class="row">
                 <div class="col-sm-12">
-                <h2 style="text-align: center">BMI</h2>
-                <p style="text-align: center";>Are you at a healthy range? Use our BMI calculator to check now!</p>
+                <h2>BMI</h2>
+                <p>Are you at a healthy range? Use our BMI calculator to check now!</p>
                 <div>
                     <div class="container-mtd">
                         <form name ="bmiform" method="POST" role="form" class="pure-form">
@@ -34,10 +36,12 @@
                 </div>
             </div>
         </div>
+        {% else %}
+            <p>Please <a href="/login">Login</a> or <a href="/signup">Sign Up</a> to access.</p>
+        {% endif %}
     <div id="space"></div>
     </section>
     <script>
-
     </script>
     <!-- if bmi not good can use our food tracker to tracker your calories, or fitness -->
 {% endblock %}
