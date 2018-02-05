@@ -10,6 +10,7 @@ from datetime import datetime
 from RegisterProgram import Registerform
 import pygal
 from pygal.style import LightSolarizedStyle
+from program import Program
 
 
 app = Flask(__name__)
