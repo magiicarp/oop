@@ -39,3 +39,5 @@ div[class='container']{
 section{
 background: white;
 }
+h6{align-content: inherit;
+}
