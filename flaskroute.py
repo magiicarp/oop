@@ -12,6 +12,7 @@ from RegisterProgram import Registerform
 import pygal
 from pygal.style import LightSolarizedStyle
 from program import Program
+from Contact import *
 
 
 app = Flask(__name__)
@@ -58,25 +59,21 @@ def registerform():
 
         registerform = Registerform(name, gender, email, contact, weight, height, program)
         registerform_db = root.child('registerprogram')
-        if session['logged_in'] == True:
-            registerform_db.push({
-                'program': registerform.get_program()
-            })
 
-        else:
-            registerform_db.push({
-                'name': registerform.get_name(),
-                'gender': registerform.get_gender(),
-                'email': registerform.get_email(),
-                'contact': registerform.get_contact(),
-                'weight': registerform.get_weight(),
-                'height': registerform.get_height(),
-                'program': registerform.get_program()
+        registerform_db.push({
+            'name': registerform.get_name(),
+            'gender': registerform.get_gender(),
+            'email': registerform.get_email(),
+            'contact': registerform.get_contact(),
+            'weight': registerform.get_weight(),
+            'height': registerform.get_height(),
+            'program': registerform.get_program()
             })
 
         flash('You have been registered for the program! Thank you!.', 'success')
 
     return render_template('registerform.html',registerform=registerprog)
+
 
 @app.route('/fitnessprograms')
 def fitnessprograms():
@@ -431,20 +428,9 @@ class UpdateForm(Form):
     password = PasswordField('Password', [validators.EqualTo('confirm',message='Passwords do not match'),validators.optional()])
     confirm = PasswordField('Confirm Password')
 
-@app.route('/<un>')
-def profile(un):
-    un = session['key']
-    root = user_ref.child(un)
-    profile_details = []
-    userbase = user_ref.get()
-    for user in userbase.items():
-        profile_details.append(user['name'])
-        profile_details.append(user['username'])
-        profile_details.append(user['birthday'])
-        profile_details.append(user['gender'])
-        profile_details.append(user['region'])
-        return render_template('profile.html')
-    return render_template('profile.html')
+#@app.route('/<un>')
+#def profile(un):
+ #   return render_template('profile.html')
 
 
 
