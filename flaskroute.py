@@ -6,6 +6,7 @@ from firebase_admin import credentials, db
 from targets2 import Target
 from bmi2 import Bmi
 from User import *
+from UserUp import *
 from datetime import datetime
 from RegisterProgram import Registerform
 import pygal
@@ -236,11 +237,6 @@ def routine_18():
 def events():
     return render_template('events.html')
 
-@app.route('/contact')
-def contact():
-    return render_template('contact.html')
-
-
 @app.route('/tracker')
 def tracker():
     return render_template('tracker.html')
@@ -427,26 +423,58 @@ def delete_targets(id):
 __all__ = ['Target' , 'Bmi' ]
 
 #profile
-@app.route('/<username>')
-def profile(username):
+class UpdateForm(Form):
+    name = StringField('Name', [validators.Length(min=1, max =50),validators.optional()])
+    username = StringField('Username',[validators.Length(min=4,max=25),validators.optional()])
+    email = StringField('Email', [validators.Length(min=6,max=50),validators.optional()])
+    region = SelectField('Area of Residence', choices=[('Central', 'Central'), ('East', 'East'), ('North', 'North'), ('South', 'South')])
+    password = PasswordField('Password', [validators.EqualTo('confirm',message='Passwords do not match'),validators.optional()])
+    confirm = PasswordField('Confirm Password')
+
+@app.route('/<un>')
+def profile(un):
+    un = session['key']
+    root = user_ref.child(un)
+    profile_details = []
+    userbase = user_ref.get()
+    for user in userbase.items():
+        profile_details.append(user['name'])
+        profile_details.append(user['username'])
+        profile_details.append(user['birthday'])
+        profile_details.append(user['gender'])
+        profile_details.append(user['region'])
+        return render_template('profile.html')
     return render_template('profile.html')
 
-#class ProfileForm(Form):
-    #about = TextAreaField('About')
 
-@app.route('/<username>/edit')
-def editprofile(username):
-    if session['logged_in'] == True:
-        return render_template('editprofile.html')
-        #form = ProfileForm(request.form)
-        #if request.method == 'POST' and form.validate():
-        #    about = form.about.data
-        #user_db = root.child('userbase')
-        #user_db.push({
-        #    'about': about
-        #})
-    else:
-        flash('You need to be logged in to edit your profile.')
+
+
+@app.route('/<un>/edit', methods=['GET','POST'])
+def editprofile(un):
+    userkey = session['key']
+    root = user_ref.child(userkey)
+    form = UpdateForm(request.form)
+    userbase = user_ref.get()
+    if request.method == 'POST' and form.validate():
+            name = form.name.data.title()
+            username = form.username.data
+            email = form.email.data
+            region = form.region.data
+            password = str(form.password.data)
+            user = UserUp(name,username,email,password,region)
+            user_db = root.child('userbase/' + un)
+            user_db.set = ({
+                'name': user.get_name(),
+                'username': user.get_username(),
+                'email': user.get_email(),
+                'password': user.get_password(),
+                'region': user.get_region(),
+
+            })
+            flash('Profile Updated Sucessfully.', 'success')
+            return render_template('editprofile.html', form=form)
+    return render_template('editprofile.html',form=form)
+
 
 
 
@@ -456,7 +484,9 @@ class SignUpForm(Form):
     username = StringField('Username',[validators.Length(min=4,max=25),validators.DataRequired()])
     email = StringField('Email', [validators.Length(min=6,max=50),validators.DataRequired()])
     birthday = DateField('Birthday', format='%Y-%m-%d')
-    #gender = SelectField('Gender',choices=['Female', 'Male', 'Other'])
+    gender = SelectField('Gender', choices=[('Female', 'Female'), ('Male', 'Male'), ('Other', 'Other')])
+    region = SelectField('Area of Residence',
+                         choices=[('Central', 'Central'), ('East', 'East'), ('North', 'North'), ('South', 'South')])
     password = PasswordField('Password', [validators.DataRequired(),validators.EqualTo('confirm',message='Passwords do not match')
 ])
     confirm = PasswordField('Confirm Password')
@@ -469,18 +499,19 @@ def signup():
         username = form.username.data
         email = form.email.data
         birthday = str(form.birthday.data)
-        #gender = form.gender.data
+        gender = form.gender.data
+        region = form.region.data
         password = str(form.password.data)
-        userbase = user_ref.get()
         user_db = root.child('userbase')
-        user = User(name, username, email,birthday, password)
+        user = User(name, username, email, password,region,birthday,gender)
         user_db.push({
             'name': user.get_name(),
             'username': user.get_username(),
             'email': user.get_email(),
             'birthday': user.get_birthday(),
-            #'gender': user.get_gender(),
-            'password': user.get_password()
+            'password': user.get_password(),
+            'gender': user.get_gender(),
+            'region': user.get_region()
         })
         flash('You have registered successfully', 'success')
         return redirect(url_for('login'))
@@ -502,21 +533,51 @@ def login():
              if user[1]['username'] == username and user[1]['password'] == password:
                  session['user_data'] = user[1]
                  session['logged_in'] = True
-                 session['logged_out'] = False
-                 session['username'] = username
+                 session['logged_out'] = True
+                 session['un'] = username
                  session['key'] = user[0]
                  return redirect(url_for('home'))
              elif form.validate() == False:
                  flash('Please enter your credentials', 'danger')
                  return render_template('login.html', form=form)
      return render_template('login.html', form=form)
-
+#
 
 #logout
 @app.route('/logout')
 def logout():
     session.pop('logged_in', None)
     return redirect(url_for('home'))
+
+#contact
+class ContactForm(Form):
+    name = StringField('Name', [validators.Length(min=1, max =50), validators.DataRequired()])
+    email = StringField('Email', [validators.Length(min=6, max =50), validators.DataRequired()])
+    subject = StringField('Subject', [validators.Length(min=1, max =50), validators.DataRequired()])
+    message = TextAreaField('Message',[validators.Length(min=20), validators.DataRequired()])
+
+@app.route('/contact', methods=['GET','POST'])
+def contact():
+    form = ContactForm(request.form)
+    if request.method == 'POST' and form.validate() == True:
+        name = form.name.data.title()
+        email = form.email.data
+        subject = form.subject.data
+        message = form.message.data
+        contact_db = root.child('contact_message')
+        contacts = Contact(name, email, subject,message)
+        contact_db.push({
+            'name': contacts.get_name(),
+            'email': contacts.get_email(),
+            'subject': contacts.get_subject(),
+            'message': contacts.get_message()
+        })
+        flash('You have submitted a message successfully', 'success')
+        return redirect(url_for('contact'))
+    return render_template('contact.html', form=form)
+
+
+
 
 #requiredif
 class RequiredIf(object):
@@ -539,4 +600,4 @@ class RequiredIf(object):
 
 if __name__ == '__main__':
     app.secret_key = 'secret12'
-    app.run(port=80)
+    app.run()

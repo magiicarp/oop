@@ -5,6 +5,9 @@
     {% from "includes/_formhelper.html" import render_field %}
     <div class="content">
         <h2>LOGIN</h2>
+    <div class="content">
+                {% include 'includes/_message.html' %}</div>
+        </div>
         {% if form.errors %}
             <div class="content">
                 <div class="alert alert-danger">
