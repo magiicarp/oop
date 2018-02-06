@@ -40,8 +40,11 @@ class RegisterForm(Form):
     height = FloatField('Height (CM)', [validators.DataRequired()])
     program = SelectField('Which Program are you registering for?',[validators.DataRequired()], choices = [('', 'Select'), ('TAIJI', 'Complimentary Taiji & QiGong Classes'), ('MARINARUN', 'Marina Run 2018'), ('RUNFORLIGHT', 'Run For Light')],default='')
 
+
 @app.route('/registerprogram', methods=['GET','POST'])
 def registerform():
+    userkey = session['key']
+    root = user_ref.child(userkey)
     registerprog = RegisterForm(request.form)
     if request.method == 'POST' and registerprog.validate():
         name = registerprog.name.data
@@ -53,17 +56,22 @@ def registerform():
         program = registerprog.program.data
 
         registerform = Registerform(name, gender, email, contact, weight, height, program)
+        registerform_db = root.child('registerprogram')
+        if session['logged_in'] == True:
+            registerform_db.push({
+                'program': registerform.get_program()
+            })
 
-        registerform_db = root.child('registerform')
-        registerform_db.push({
-            'name': registerform.get_name(),
-            'gender': registerform.get_gender(),
-            'email': registerform.get_email(),
-            'contact': registerform.get_contact(),
-            'weight': registerform.get_weight(),
-            'height': registerform.get_height(),
-            'program': registerform.get_program()
-        })
+        else:
+            registerform_db.push({
+                'name': registerform.get_name(),
+                'gender': registerform.get_gender(),
+                'email': registerform.get_email(),
+                'contact': registerform.get_contact(),
+                'weight': registerform.get_weight(),
+                'height': registerform.get_height(),
+                'program': registerform.get_program()
+            })
 
         flash('You have been registered for the program! Thank you!.', 'success')
 
