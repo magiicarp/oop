@@ -229,11 +229,6 @@ def routine_18():
 def events():
     return render_template('events.html')
 
-@app.route('/contact')
-def contact():
-    return render_template('contact.html')
-
-
 @app.route('/tracker')
 def tracker():
     return render_template('tracker.html')
